@@ -1,0 +1,8 @@
+  brush           500 b= auto    0.43 min        17.654 dB     10,532 splats
+  brush          1000 b= auto    0.80 min        18.811 dB     10,531 splats
+  brush          2000 b= auto    1.60 min        22.008 dB      4,388 splats
+  brush          4000 b= auto    3.25 min        25.155 dB      6,524 splats
+  brush          7000 b= auto    5.77 min        27.854 dB     15,462 splats
+  brush         15000 b= auto   13.00 min        31.946 dB     42,650 splats
+
+-> bench/results/sweep8/chair_brush.json

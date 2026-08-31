@@ -1,0 +1,61 @@
+{
+  "scene": "data/nerf_synthetic/lego",
+  "resolution": 800,
+  "msplat_variant": "scaled",
+  "rows": [
+    {
+      "impl": "msplat",
+      "iters": 500,
+      "msplat_variant": "scaled",
+      "ok": true,
+      "wall_s": 30.6,
+      "psnr": 12.9115,
+      "n_splats": 100000
+    },
+    {
+      "impl": "msplat",
+      "iters": 1000,
+      "msplat_variant": "scaled",
+      "ok": true,
+      "wall_s": 52.4,
+      "psnr": 17.7511,
+      "n_splats": 100000
+    },
+    {
+      "impl": "msplat",
+      "iters": 2000,
+      "msplat_variant": "scaled",
+      "ok": true,
+      "wall_s": 47.2,
+      "psnr": 20.4215,
+      "n_splats": 65333
+    },
+    {
+      "impl": "msplat",
+      "iters": 4000,
+      "msplat_variant": "scaled",
+      "ok": true,
+      "wall_s": 105.9,
+      "psnr": 20.4309,
+      "n_splats": 126030
+    },
+    {
+      "impl": "msplat",
+      "iters": 7000,
+      "msplat_variant": "scaled",
+      "ok": true,
+      "wall_s": 196.2,
+      "psnr": 23.5299,
+      "n_splats": 162301
+    },
+    {
+      "impl": "msplat",
+      "iters": 15000,
+      "msplat_variant": "scaled",
+      "ok": true,
+      "wall_s": 425.8,
+      "psnr": 22.7658,
+      "n_splats": 192724
+    }
+  ]
+}

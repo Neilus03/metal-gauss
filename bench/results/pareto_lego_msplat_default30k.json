@@ -1,0 +1,16 @@
+{
+  "scene": "data/nerf_synthetic/lego",
+  "resolution": 800,
+  "msplat_variant": "stock",
+  "rows": [
+    {
+      "impl": "msplat",
+      "iters": 30000,
+      "msplat_variant": "stock",
+      "ok": true,
+      "wall_s": 836.9,
+      "psnr": 22.6101,
+      "n_splats": 179567
+    }
+  ]
+}

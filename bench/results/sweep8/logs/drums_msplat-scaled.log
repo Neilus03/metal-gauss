@@ -1,0 +1,8 @@
+  msplat          500 b= auto    0.44 min        12.858 dB    100,000 splats
+  msplat         1000 b= auto    0.89 min        17.976 dB    100,000 splats
+  msplat         2000 b= auto    0.71 min        19.171 dB     49,718 splats
+  msplat         4000 b= auto    1.58 min        21.421 dB    100,974 splats
+  msplat         7000 b= auto    2.63 min        21.294 dB    136,625 splats
+  msplat        15000 b= auto    6.01 min        20.051 dB    172,503 splats
+
+-> bench/results/sweep8/drums_msplat-scaled.json

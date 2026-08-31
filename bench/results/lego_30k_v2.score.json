@@ -1,0 +1,7 @@
+{
+  "ply": "/tmp/cmp_out/lego30k.ply",
+  "scene": "data/nerf_synthetic/lego",
+  "views": 200,
+  "psnr": 35.8771,
+  "n_splats": 500000
+}

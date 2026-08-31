@@ -1,0 +1,8 @@
+  brush           500 b= auto    0.43 min        13.719 dB     10,546 splats
+  brush          1000 b= auto    0.80 min        17.012 dB     10,548 splats
+  brush          2000 b= auto    1.60 min        23.506 dB      3,620 splats
+  brush          4000 b= auto    3.29 min        27.625 dB      6,890 splats
+  brush          7000 b= auto    5.89 min        30.698 dB     10,973 splats
+  brush         15000 b= auto   13.31 min        34.434 dB     20,895 splats
+
+-> bench/results/sweep8/hotdog_brush.json

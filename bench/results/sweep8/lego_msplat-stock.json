@@ -1,0 +1,67 @@
+{
+  "scene": "data/nerf_synthetic/lego",
+  "resolution": 800,
+  "msplat_variant": "stock",
+  "rows": [
+    {
+      "impl": "msplat",
+      "iters": 500,
+      "msplat_variant": "stock",
+      "ok": true,
+      "wall_s": 6.1,
+      "psnr": 10.8679,
+      "ssim": 0.75316,
+      "n_splats": 100000
+    },
+    {
+      "impl": "msplat",
+      "iters": 1000,
+      "msplat_variant": "stock",
+      "ok": true,
+      "wall_s": 9.4,
+      "psnr": 12.6219,
+      "ssim": 0.76563,
+      "n_splats": 100000
+    },
+    {
+      "impl": "msplat",
+      "iters": 2000,
+      "msplat_variant": "stock",
+      "ok": true,
+      "wall_s": 9.9,
+      "psnr": 20.4433,
+      "ssim": 0.82217,
+      "n_splats": 19888
+    },
+    {
+      "impl": "msplat",
+      "iters": 4000,
+      "msplat_variant": "stock",
+      "ok": true,
+      "wall_s": 24.2,
+      "psnr": 18.8173,
+      "ssim": 0.86278,
+      "n_splats": 56115
+    },
+    {
+      "impl": "msplat",
+      "iters": 7000,
+      "msplat_variant": "stock",
+      "ok": true,
+      "wall_s": 62.5,
+      "psnr": 22.9918,
+      "ssim": 0.9228,
+      "n_splats": 67594
+    },
+    {
+      "impl": "msplat",
+      "iters": 15000,
+      "msplat_variant": "stock",
+      "ok": true,
+      "wall_s": 279.3,
+      "psnr": 21.0042,
+      "ssim": 0.91758,
+      "n_splats": 125595
+    }
+  ]
+}

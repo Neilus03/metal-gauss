@@ -1,0 +1,8 @@
+  brush           500 b= auto    0.42 min        13.224 dB     10,494 splats
+  brush          1000 b= auto    0.79 min        14.518 dB     10,493 splats
+  brush          2000 b= auto    1.55 min        16.178 dB      1,932 splats
+  brush          4000 b= auto    3.06 min        17.636 dB      3,296 splats
+  brush          7000 b= auto    5.43 min        19.679 dB      7,899 splats
+  brush         15000 b= auto   11.94 min        22.017 dB     26,123 splats
+
+-> bench/results/sweep8/drums_brush.json

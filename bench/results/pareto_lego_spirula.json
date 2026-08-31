@@ -1,0 +1,81 @@
+{
+  "scene": "data/nerf_synthetic/lego",
+  "resolution": 800,
+  "preset": "synthetic",
+  "binary": "$METAL_GAUSS_SPIRULA",
+  "spirula_version": "2026.8.28",
+  "rows": [
+    {
+      "impl": "spirula",
+      "iters": 500,
+      "resolved_steps": 500,
+      "preset": "synthetic",
+      "ok": true,
+      "wall_s": 22.3,
+      "psnr": 13.6356,
+      "ssim": 0.77694,
+      "lpips": 0.40482,
+      "n_splats": 99867
+    },
+    {
+      "impl": "spirula",
+      "iters": 1000,
+      "resolved_steps": 1000,
+      "preset": "synthetic",
+      "ok": true,
+      "wall_s": 39.7,
+      "psnr": 15.9251,
+      "ssim": 0.80821,
+      "lpips": 0.29243,
+      "n_splats": 108097
+    },
+    {
+      "impl": "spirula",
+      "iters": 2000,
+      "resolved_steps": 2000,
+      "preset": "synthetic",
+      "ok": true,
+      "wall_s": 81.7,
+      "psnr": 17.594,
+      "ssim": 0.86553,
+      "lpips": 0.1765,
+      "n_splats": 188281
+    },
+    {
+      "impl": "spirula",
+      "iters": 4000,
+      "resolved_steps": 4000,
+      "preset": "synthetic",
+      "ok": true,
+      "wall_s": 214.6,
+      "psnr": 20.5622,
+      "ssim": 0.91101,
+      "lpips": 0.11382,
+      "n_splats": 509491
+    },
+    {
+      "impl": "spirula",
+      "iters": 7000,
+      "resolved_steps": 7000,
+      "preset": "synthetic",
+      "ok": true,
+      "wall_s": 601.0,
+      "psnr": 27.6327,
+      "ssim": 0.95239,
+      "lpips": 0.04964,
+      "n_splats": 996693
+    },
+    {
+      "impl": "spirula",
+      "iters": 15000,
+      "resolved_steps": 15000,
+      "preset": "synthetic",
+      "ok": true,
+      "wall_s": 1811.7,
+      "psnr": 32.0508,
+      "ssim": 0.97028,
+      "lpips": 0.01988,
+      "n_splats": 998450
+    }
+  ]
+}

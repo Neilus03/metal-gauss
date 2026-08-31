@@ -1,0 +1,25 @@
+{
+  "scene": "/tmp/cmp_data/room1_pinhole",
+  "iters": 7000,
+  "rows": [
+    {
+      "impl": "metal-gauss",
+      "ok": true,
+      "returncode": 0,
+      "wall_s": 852.1,
+      "psnr": 27.93,
+      "cmd": "/private/tmp/gb_test/bin/python -m metal_gauss.train --colmap /tmp/cmp_data/room1_pinhole/sparse/0 --images /tmp/cmp_data/room1_pinhole/images --steps 7000 --budget 600000 --max-resolution 1600 --eval-every 7000",
+      "tail": "step    100  loss 0.2824  (86 ms/step)\nstep    500  loss 0.1366  (83 ms/step)\nstep   1000  loss 0.0852  (86 ms/step)\nstep   1500  loss 0.0533  (88 ms/step)\nstep   2000  loss 0.0704  (92 ms/step)\nstep   2500  loss 0.0642  (97 ms/step)\nstep   3000  loss 0.0314  (101 ms/step)\nstep   3500  loss 0.0402  (104 ms/step)\nstep   4000  loss 0.0585  (108 ms/step)\nstep   4500  loss 0.0636  (111 ms/step)\nstep   5000  loss 0.0505  (115 ms/step)\nstep   5500  loss 0.0393  (117 ms/step)\nstep   6000  loss 0.0231  (118 ms/step)\nstep   6500  loss 0.0288  (120 ms/step)\nstep   7000  loss 0.0388  heldout PSNR 27.93 dB  600k splats  847s  (121 ms/step)"
+    },
+    {
+      "impl": "msplat",
+      "ok": true,
+      "returncode": 0,
+      "wall_s": 171.6,
+      "psnr": 26.277,
+      "cmd": "/tmp/cmp_msplat/bin/msplat-train --input /tmp/cmp_data/room1_pinhole --num-iters 7000 --eval --output /tmp/cmp_out/msplat.ply",
+      "tail": "step=  6600  splats= 495,335  ms=51.3\nstep=  6700  splats= 495,335  ms=58.1\nstep=  6800  splats= 495,335  ms=45.2\nstep=  6900  splats= 495,335  ms=45.0\nstep=  7000  splats= 495,335  ms=46.7\nSaved /tmp/cmp_out/msplat.ply\n\n=== Evaluation (21 test views) ===\n  PSNR:  26.2770\n  SSIM:  0.8547\n  L1:    0.0357\n  Gaussians: 495,335\n\nWARNING: per-tile overflow (>2048 gaussians in a tile). Some gaussians were dropped from overfull tiles.\nOpacity reset at step 3100"
+    }
+  ],
+  "provenance": "incomplete"
+}

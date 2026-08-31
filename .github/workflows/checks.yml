@@ -1,0 +1,38 @@
+# CPU-only guards. Deliberately does NOT run the kernel tests: they need a real
+# Apple GPU, and a CI job that cannot pass is worse than no CI job.
+#
+# What this does catch is the class of bug that actually hurt this project --
+# benchmark bookkeeping, not kernels. Every wrong number published here came
+# from a harness.
+name: checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  provenance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install test deps only (no torch, no GPU)
+        run: pip install pytest
+
+      - name: Harness regression tests
+        # tests/test_runner.py is pure argv/dict logic and imports no torch.
+        # It encodes the two harness bugs that produced wrong published numbers.
+        run: pytest tests/test_runner.py -q
+
+      - name: README tables match their JSONs
+        run: python bench/readme_tables.py --check
+
+      - name: Report result provenance
+        # Informational: lists results that cannot state the protocol they ran
+        # under. Does not fail the build, since historical results are kept.
+        run: python bench/quarantine.py

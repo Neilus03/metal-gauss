@@ -1,0 +1,8 @@
+  metal-gauss     500 b=30k    0.28 min        21.335 dB     27,857 splats
+  metal-gauss    1000 b=100k    0.71 min        19.291 dB    100,000 splats
+  metal-gauss    2000 b=100k    1.09 min        24.194 dB    100,000 splats
+  metal-gauss    4000 b=100k    1.69 min        27.414 dB    100,000 splats
+  metal-gauss    7000 b=100k    2.58 min        28.648 dB    100,000 splats
+  metal-gauss   15000 b=100k    5.19 min        30.597 dB    100,000 splats
+
+-> bench/results/sweep8/ficus_metal-gauss.json

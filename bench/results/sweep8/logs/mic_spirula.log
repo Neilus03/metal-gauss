@@ -1,0 +1,8 @@
+  spirula    500    0.31 min        13.194 dB     99,976 splats
+  spirula   1000    0.59 min        13.579 dB    107,159 splats
+  spirula   2000    1.39 min        17.194 dB    169,731 splats
+  spirula   4000    3.76 min        23.049 dB    481,086 splats
+  spirula   7000   10.01 min        26.471 dB    986,148 splats
+  spirula  15000   28.28 min        35.380 dB    986,916 splats
+
+-> bench/results/sweep8/mic_spirula.json

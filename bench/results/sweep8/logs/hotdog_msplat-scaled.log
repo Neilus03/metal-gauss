@@ -1,0 +1,8 @@
+  msplat          500 b= auto    0.45 min        15.160 dB    100,000 splats
+  msplat         1000 b= auto    0.85 min        19.328 dB    100,000 splats
+  msplat         2000 b= auto    0.77 min        17.359 dB     62,114 splats
+  msplat         4000 b= auto    1.64 min        22.132 dB     95,821 splats
+  msplat         7000 b= auto    2.84 min        20.045 dB    120,451 splats
+  msplat        15000 b= auto    5.65 min        23.559 dB    110,800 splats
+
+-> bench/results/sweep8/hotdog_msplat-scaled.json

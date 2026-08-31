@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "env": {
+    "git": "b100e1d",
+    "dirty": true,
+    "torch": "2.13.0",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "machine": "arm64"
+  },
+  "scene": "data/nerf_synthetic/lego",
+  "budget": 100000,
+  "W": 800,
+  "H": 800,
+  "median_ms": {
+    "render_fwd": 26.770646014483646,
+    "loss_fwd": 5.612145992927253,
+    "backward": 76.31783350370824,
+    "adam": 2.2282499994616956,
+    "mcmc": 1.2789375032298267
+  },
+  "total_ms": 112.20781301381066,
+  "iqr_pct": {
+    "render_fwd": 17.100354064177864,
+    "loss_fwd": 14.812185763817835,
+    "backward": 15.758235651490457,
+    "adam": 10.686635279417082,
+    "mcmc": 19.647638476261058
+  }
+}

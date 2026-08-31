@@ -1,0 +1,106 @@
+{
+  "scene": "data/nerf_synthetic/lego",
+  "budget": 300000,
+  "resolution": 800,
+  "note": "metal-gauss rows from the original sweep; msplat rows re-run with --keep-crs. The msplat rows in pareto_lego.json are INVALID (raw RGBA input composited over black, and Nerfstudio's scene transform applied so the .ply is in a different world frame) and are excluded.",
+  "eval": "all rows scored by bench/compare/score_ply.py on the official 200-view test split, identical inputs and identical random init",
+  "rows": [
+    {
+      "impl": "metal-gauss",
+      "iters": 500,
+      "ok": true,
+      "wall_s": 98.7,
+      "psnr": 12.7808,
+      "n_splats": 278571
+    },
+    {
+      "impl": "metal-gauss",
+      "iters": 1000,
+      "ok": true,
+      "wall_s": 155.2,
+      "psnr": 17.1288,
+      "n_splats": 300000
+    },
+    {
+      "impl": "metal-gauss",
+      "iters": 2000,
+      "ok": true,
+      "wall_s": 253.2,
+      "psnr": 22.669,
+      "n_splats": 300000
+    },
+    {
+      "impl": "metal-gauss",
+      "iters": 4000,
+      "ok": true,
+      "wall_s": 420.2,
+      "psnr": 26.3433,
+      "n_splats": 300000
+    },
+    {
+      "impl": "metal-gauss",
+      "iters": 7000,
+      "ok": true,
+      "wall_s": 577.9,
+      "psnr": 29.6046,
+      "n_splats": 300000
+    },
+    {
+      "impl": "metal-gauss",
+      "iters": 15000,
+      "ok": true,
+      "wall_s": 1096.2,
+      "psnr": 33.7274,
+      "n_splats": 300000
+    },
+    {
+      "impl": "msplat",
+      "iters": 500,
+      "ok": true,
+      "wall_s": 7.1,
+      "psnr": 10.9122,
+      "n_splats": 100000
+    },
+    {
+      "impl": "msplat",
+      "iters": 1000,
+      "ok": true,
+      "wall_s": 9.6,
+      "psnr": 12.2388,
+      "n_splats": 100000
+    },
+    {
+      "impl": "msplat",
+      "iters": 2000,
+      "ok": true,
+      "wall_s": 10.0,
+      "psnr": 20.2494,
+      "n_splats": 19185
+    },
+    {
+      "impl": "msplat",
+      "iters": 4000,
+      "ok": true,
+      "wall_s": 23.6,
+      "psnr": 19.4584,
+      "n_splats": 57092
+    },
+    {
+      "impl": "msplat",
+      "iters": 7000,
+      "ok": true,
+      "wall_s": 64.0,
+      "psnr": 22.2533,
+      "n_splats": 68832
+    },
+    {
+      "impl": "msplat",
+      "iters": 15000,
+      "ok": true,
+      "wall_s": 301.3,
+      "psnr": 19.9257,
+      "n_splats": 129773
+    }
+  ],
+  "provenance": "incomplete"
+}

@@ -1,0 +1,8 @@
+  msplat          500 b= auto    0.46 min        12.917 dB    100,000 splats
+  msplat         1000 b= auto    0.89 min        17.738 dB    100,000 splats
+  msplat         2000 b= auto    0.79 min        18.137 dB     65,622 splats
+  msplat         4000 b= auto    1.79 min        22.386 dB    130,604 splats
+  msplat         7000 b= auto    3.28 min        23.476 dB    168,179 splats
+  msplat        15000 b= auto    6.91 min        23.957 dB    187,595 splats
+
+-> bench/results/sweep8/lego_msplat-scaled.json

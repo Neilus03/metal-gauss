@@ -1,0 +1,30 @@
+__pycache__/
+*.pyc
+.venv/
+build/
+*.so
+.DS_Store
+
+# Trained splats: 141 MB per export, reproducible from the JSON curve
+*.ply
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+*.stashed/
+
+# Benchmark datasets. NeRF-synthetic alone was 1.29 GB across 5,056 files and
+# made up 99% of this repository's history before it was rewritten out.
+# It is third-party research data, downloaded rather than vendored.
+data/
+# Brush (wgpu/Burn) writes its autotune cache into the CWD
+target/
+
+# Generated views of bench/results/timelapse_frames.json (rebuild:
+# python bench/compare/build_timelapse_page.py)
+bench/results/timelapse.html
+bench/results/timelapse_standalone.html
+
+# one-off social asset, rebuild: python bench/compare/render_grid_video.py
+assets/timelapse_square.mp4
+assets/linkedin_post.txt

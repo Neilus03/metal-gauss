@@ -1,0 +1,67 @@
+{
+  "scene": "data/nerf_synthetic/ficus",
+  "resolution": 800,
+  "msplat_variant": "scaled",
+  "rows": [
+    {
+      "impl": "msplat",
+      "iters": 500,
+      "msplat_variant": "scaled",
+      "ok": true,
+      "wall_s": 24.4,
+      "psnr": 14.7826,
+      "ssim": 0.85604,
+      "n_splats": 100000
+    },
+    {
+      "impl": "msplat",
+      "iters": 1000,
+      "msplat_variant": "scaled",
+      "ok": true,
+      "wall_s": 53.4,
+      "psnr": 17.5509,
+      "ssim": 0.86545,
+      "n_splats": 100000
+    },
+    {
+      "impl": "msplat",
+      "iters": 2000,
+      "msplat_variant": "scaled",
+      "ok": true,
+      "wall_s": 34.4,
+      "psnr": 16.8669,
+      "ssim": 0.87983,
+      "n_splats": 26483
+    },
+    {
+      "impl": "msplat",
+      "iters": 4000,
+      "msplat_variant": "scaled",
+      "ok": true,
+      "wall_s": 75.2,
+      "psnr": 17.9411,
+      "ssim": 0.91121,
+      "n_splats": 56089
+    },
+    {
+      "impl": "msplat",
+      "iters": 7000,
+      "msplat_variant": "scaled",
+      "ok": true,
+      "wall_s": 132.2,
+      "psnr": 17.7742,
+      "ssim": 0.91276,
+      "n_splats": 71770
+    },
+    {
+      "impl": "msplat",
+      "iters": 15000,
+      "msplat_variant": "scaled",
+      "ok": true,
+      "wall_s": 289.3,
+      "psnr": 17.0402,
+      "ssim": 0.90029,
+      "n_splats": 81207
+    }
+  ]
+}

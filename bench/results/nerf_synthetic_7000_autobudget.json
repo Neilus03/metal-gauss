@@ -1,0 +1,63 @@
+{
+  "protocol": {
+    "steps": 7000,
+    "budget": "auto",
+    "num_downscales": "default",
+    "resolution": 800,
+    "split": "official Blender train/test",
+    "background": "white"
+  },
+  "mean_psnr": 30.3075,
+  "total_wall_s": 1563.2,
+  "scenes": [
+    {
+      "scene": "chair",
+      "status": "ok",
+      "psnr": 32.49,
+      "wall_s": 206.8
+    },
+    {
+      "scene": "drums",
+      "status": "ok",
+      "psnr": 24.89,
+      "wall_s": 195.7
+    },
+    {
+      "scene": "ficus",
+      "status": "ok",
+      "psnr": 28.52,
+      "wall_s": 186.2
+    },
+    {
+      "scene": "hotdog",
+      "status": "ok",
+      "psnr": 36.46,
+      "wall_s": 250.5
+    },
+    {
+      "scene": "lego",
+      "status": "ok",
+      "psnr": 30.56,
+      "wall_s": 184.3
+    },
+    {
+      "scene": "materials",
+      "status": "ok",
+      "psnr": 27.93,
+      "wall_s": 168.9
+    },
+    {
+      "scene": "mic",
+      "status": "ok",
+      "psnr": 32.23,
+      "wall_s": 172.0
+    },
+    {
+      "scene": "ship",
+      "status": "ok",
+      "psnr": 29.38,
+      "wall_s": 198.9
+    }
+  ],
+  "provenance": "incomplete"
+}

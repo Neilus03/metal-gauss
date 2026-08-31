@@ -1,0 +1,8 @@
+  msplat          500 b= auto    0.41 min        14.783 dB    100,000 splats
+  msplat         1000 b= auto    0.89 min        17.551 dB    100,000 splats
+  msplat         2000 b= auto    0.57 min        16.867 dB     26,483 splats
+  msplat         4000 b= auto    1.25 min        17.941 dB     56,089 splats
+  msplat         7000 b= auto    2.20 min        17.774 dB     71,770 splats
+  msplat        15000 b= auto    4.82 min        17.040 dB     81,207 splats
+
+-> bench/results/sweep8/ficus_msplat-scaled.json

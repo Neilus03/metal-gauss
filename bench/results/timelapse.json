@@ -1,0 +1,941 @@
+{
+  "schema": 1,
+  "env": {
+    "git": "124a4c3",
+    "dirty": true,
+    "torch": "2.13.0",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "machine": "arm64"
+  },
+  "config": {
+    "scene": "lego",
+    "steps_per_impl": {
+      "metal-gauss": 15000,
+      "msplat-ladder": 19000,
+      "brush": 7000,
+      "spirula": 5500
+    },
+    "wall_budget_s": 390,
+    "every": 250,
+    "resolution": 800
+  },
+  "rows": [
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step000250.ply",
+      "t": 12.8
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step000500.ply",
+      "t": 15.21
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step000750.ply",
+      "t": 17.2
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step001000.ply",
+      "t": 19.38
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step001250.ply",
+      "t": 21.28
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step001500.ply",
+      "t": 23.18
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step001750.ply",
+      "t": 25.08
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step002000.ply",
+      "t": 27.06
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step002250.ply",
+      "t": 29.12
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step002500.ply",
+      "t": 31.2
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step002750.ply",
+      "t": 33.23
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step003000.ply",
+      "t": 35.34
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step003250.ply",
+      "t": 37.48
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step003500.ply",
+      "t": 39.73
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step003750.ply",
+      "t": 41.93
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step004000.ply",
+      "t": 44.22
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step004250.ply",
+      "t": 46.5
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step004500.ply",
+      "t": 48.91
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step004750.ply",
+      "t": 51.29
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step005000.ply",
+      "t": 53.79
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step005250.ply",
+      "t": 57.53
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step005500.ply",
+      "t": 61.25
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step005750.ply",
+      "t": 64.97
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step006000.ply",
+      "t": 68.86
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step006250.ply",
+      "t": 73.06
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step006500.ply",
+      "t": 77.06
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step006750.ply",
+      "t": 81.12
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step007000.ply",
+      "t": 85.16
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step007250.ply",
+      "t": 89.24
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step007500.ply",
+      "t": 93.41
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step007750.ply",
+      "t": 97.6
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step008000.ply",
+      "t": 101.9
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step008250.ply",
+      "t": 106.18
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step008500.ply",
+      "t": 110.56
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step008750.ply",
+      "t": 114.93
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step009000.ply",
+      "t": 119.38
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step009250.ply",
+      "t": 123.89
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step009500.ply",
+      "t": 128.5
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step009750.ply",
+      "t": 133.09
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step010000.ply",
+      "t": 137.77
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step010250.ply",
+      "t": 147.08
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step010500.ply",
+      "t": 156.52
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step010750.ply",
+      "t": 166.1
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step011000.ply",
+      "t": 175.92
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step011250.ply",
+      "t": 185.31
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step011500.ply",
+      "t": 194.87
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step011750.ply",
+      "t": 205.49
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step012000.ply",
+      "t": 215.98
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step012250.ply",
+      "t": 225.52
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step012500.ply",
+      "t": 234.86
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step012750.ply",
+      "t": 245.23
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step013000.ply",
+      "t": 255.05
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step013250.ply",
+      "t": 264.32
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step013500.ply",
+      "t": 273.56
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step013750.ply",
+      "t": 282.9
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step014000.ply",
+      "t": 292.13
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step014250.ply",
+      "t": 301.38
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step014500.ply",
+      "t": 310.59
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step014750.ply",
+      "t": 319.77
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.step015000.ply",
+      "t": 329.14
+    },
+    {
+      "impl": "metal-gauss",
+      "ply": "/tmp/timelapse/metal-gauss/mg.ply",
+      "t": 331.17
+    },
+    {
+      "impl": "metal-gauss",
+      "done_at": 331.59
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_0117.ply",
+      "t": 5.56
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_0234.ply",
+      "t": 10.6
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_0351.ply",
+      "t": 15.5
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_0468.ply",
+      "t": 20.37
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_0585.ply",
+      "t": 25.16
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_0702.ply",
+      "t": 30.3
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_0819.ply",
+      "t": 35.55
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_0936.ply",
+      "t": 40.33
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_1053.ply",
+      "t": 47.73
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_1170.ply",
+      "t": 52.58
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_1287.ply",
+      "t": 57.8
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_1404.ply",
+      "t": 62.91
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_1521.ply",
+      "t": 67.87
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_1638.ply",
+      "t": 72.84
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_1755.ply",
+      "t": 77.88
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_1872.ply",
+      "t": 82.95
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_1989.ply",
+      "t": 87.93
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_2106.ply",
+      "t": 95.48
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_2223.ply",
+      "t": 100.56
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_2340.ply",
+      "t": 105.62
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_2457.ply",
+      "t": 110.93
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_2574.ply",
+      "t": 115.92
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_2691.ply",
+      "t": 121.08
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_2808.ply",
+      "t": 126.34
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_2925.ply",
+      "t": 131.37
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_3042.ply",
+      "t": 139.04
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_3159.ply",
+      "t": 144.08
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_3276.ply",
+      "t": 149.2
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_3393.ply",
+      "t": 154.35
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_3510.ply",
+      "t": 159.53
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_3627.ply",
+      "t": 164.83
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_3744.ply",
+      "t": 170.11
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_3861.ply",
+      "t": 175.4
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_3978.ply",
+      "t": 180.72
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_4095.ply",
+      "t": 188.57
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_4212.ply",
+      "t": 193.85
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_4329.ply",
+      "t": 198.98
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_4446.ply",
+      "t": 204.21
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_4563.ply",
+      "t": 209.35
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_4680.ply",
+      "t": 214.62
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_4797.ply",
+      "t": 219.79
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_4914.ply",
+      "t": 225.08
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_5031.ply",
+      "t": 232.96
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_5148.ply",
+      "t": 238.23
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_5265.ply",
+      "t": 243.5
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_5382.ply",
+      "t": 248.71
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_5499.ply",
+      "t": 254.12
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_5616.ply",
+      "t": 259.46
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_5733.ply",
+      "t": 264.69
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_5850.ply",
+      "t": 270.04
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_5967.ply",
+      "t": 275.32
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_6084.ply",
+      "t": 283.28
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_6201.ply",
+      "t": 288.72
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_6318.ply",
+      "t": 294.06
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_6435.ply",
+      "t": 299.35
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_6552.ply",
+      "t": 304.98
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_6669.ply",
+      "t": 310.27
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_6786.ply",
+      "t": 315.53
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_6903.ply",
+      "t": 320.86
+    },
+    {
+      "impl": "brush",
+      "ply": "/tmp/timelapse/brush/br_7000.ply",
+      "t": 327.8
+    },
+    {
+      "impl": "brush",
+      "done_at": 327.82
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000000092.ckpt/splat.ply",
+      "t": 6.0
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000000184.ckpt/splat.ply",
+      "t": 10.09
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000000276.ckpt/splat.ply",
+      "t": 13.34
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000000368.ckpt/splat.ply",
+      "t": 16.44
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000000460.ckpt/splat.ply",
+      "t": 19.49
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000000552.ckpt/splat.ply",
+      "t": 22.56
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000000644.ckpt/splat.ply",
+      "t": 25.68
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000000736.ckpt/splat.ply",
+      "t": 29.08
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000000828.ckpt/splat.ply",
+      "t": 32.27
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000000920.ckpt/splat.ply",
+      "t": 35.59
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000001012.ckpt/splat.ply",
+      "t": 38.9
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000001104.ckpt/splat.ply",
+      "t": 42.44
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000001196.ckpt/splat.ply",
+      "t": 46.14
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000001288.ckpt/splat.ply",
+      "t": 49.98
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000001380.ckpt/splat.ply",
+      "t": 53.96
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000001472.ckpt/splat.ply",
+      "t": 58.09
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000001564.ckpt/splat.ply",
+      "t": 62.34
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000001656.ckpt/splat.ply",
+      "t": 66.69
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000001748.ckpt/splat.ply",
+      "t": 71.16
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000001840.ckpt/splat.ply",
+      "t": 75.75
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000001932.ckpt/splat.ply",
+      "t": 80.54
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000002024.ckpt/splat.ply",
+      "t": 85.43
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000002116.ckpt/splat.ply",
+      "t": 90.53
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000002208.ckpt/splat.ply",
+      "t": 95.76
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000002300.ckpt/splat.ply",
+      "t": 101.04
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000002392.ckpt/splat.ply",
+      "t": 106.46
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000002484.ckpt/splat.ply",
+      "t": 111.98
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000002576.ckpt/splat.ply",
+      "t": 117.68
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000002668.ckpt/splat.ply",
+      "t": 123.48
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000002760.ckpt/splat.ply",
+      "t": 129.42
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000002852.ckpt/splat.ply",
+      "t": 135.38
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000002944.ckpt/splat.ply",
+      "t": 141.44
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000003036.ckpt/splat.ply",
+      "t": 147.75
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000003128.ckpt/splat.ply",
+      "t": 154.41
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000003220.ckpt/splat.ply",
+      "t": 161.19
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000003312.ckpt/splat.ply",
+      "t": 168.19
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000003404.ckpt/splat.ply",
+      "t": 175.27
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000003496.ckpt/splat.ply",
+      "t": 182.55
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000003588.ckpt/splat.ply",
+      "t": 190.03
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000003680.ckpt/splat.ply",
+      "t": 197.62
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000003772.ckpt/splat.ply",
+      "t": 205.38
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000003864.ckpt/splat.ply",
+      "t": 213.31
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000003956.ckpt/splat.ply",
+      "t": 221.47
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000004048.ckpt/splat.ply",
+      "t": 229.86
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000004140.ckpt/splat.ply",
+      "t": 238.45
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000004232.ckpt/splat.ply",
+      "t": 247.18
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000004324.ckpt/splat.ply",
+      "t": 256.12
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000004416.ckpt/splat.ply",
+      "t": 265.25
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000004508.ckpt/splat.ply",
+      "t": 274.67
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000004600.ckpt/splat.ply",
+      "t": 284.26
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000004692.ckpt/splat.ply",
+      "t": 294.17
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000004784.ckpt/splat.ply",
+      "t": 304.34
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000004876.ckpt/splat.ply",
+      "t": 314.83
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000004968.ckpt/splat.ply",
+      "t": 325.56
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000005060.ckpt/splat.ply",
+      "t": 336.61
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000005152.ckpt/splat.ply",
+      "t": 347.96
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000005244.ckpt/splat.ply",
+      "t": 359.74
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000005336.ckpt/splat.ply",
+      "t": 371.56
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000005428.ckpt/splat.ply",
+      "t": 383.65
+    },
+    {
+      "impl": "spirula",
+      "ply": "/tmp/timelapse/spirula/tl/step-000005500.ckpt/splat.ply",
+      "t": 393.12
+    },
+    {
+      "impl": "spirula",
+      "done_at": 393.18
+    }
+  ]
+}

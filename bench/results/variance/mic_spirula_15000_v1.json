@@ -1,0 +1,21 @@
+{
+  "scene": "data/nerf_synthetic/mic",
+  "resolution": 800,
+  "preset": "synthetic",
+  "binary": "$METAL_GAUSS_SPIRULA",
+  "spirula_version": "2026.8.28",
+  "rows": [
+    {
+      "impl": "spirula",
+      "iters": 15000,
+      "resolved_steps": 15000,
+      "preset": "synthetic",
+      "ok": true,
+      "wall_s": 1699.1,
+      "psnr": 35.6238,
+      "ssim": null,
+      "lpips": null,
+      "n_splats": 987146
+    }
+  ]
+}

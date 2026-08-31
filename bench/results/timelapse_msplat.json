@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "env": {
+    "git": "124a4c3",
+    "dirty": true,
+    "torch": "2.13.0",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "machine": "arm64"
+  },
+  "config": {
+    "scene": "lego",
+    "steps_per_impl": {
+      "msplat-ladder": 19000
+    },
+    "wall_budget_s": 390,
+    "every": 250,
+    "resolution": 800
+  },
+  "rows": [
+    {
+      "impl": "msplat",
+      "ply": "/tmp/timelapse/msplat-ladder/ms_000100.ply",
+      "t": 2.7,
+      "iters": 100
+    },
+    {
+      "impl": "msplat",
+      "ply": "/tmp/timelapse/msplat-ladder/ms_000250.ply",
+      "t": 3.65,
+      "iters": 250
+    },
+    {
+      "impl": "msplat",
+      "ply": "/tmp/timelapse/msplat-ladder/ms_000500.ply",
+      "t": 5.55,
+      "iters": 500
+    },
+    {
+      "impl": "msplat",
+      "ply": "/tmp/timelapse/msplat-ladder/ms_000750.ply",
+      "t": 7.13,
+      "iters": 750
+    },
+    {
+      "impl": "msplat",
+      "ply": "/tmp/timelapse/msplat-ladder/ms_001000.ply",
+      "t": 8.83,
+      "iters": 1000
+    },
+    {
+      "impl": "msplat",
+      "ply": "/tmp/timelapse/msplat-ladder/ms_001500.ply",
+      "t": 7.86,
+      "iters": 1500
+    },
+    {
+      "impl": "msplat",
+      "ply": "/tmp/timelapse/msplat-ladder/ms_002000.ply",
+      "t": 9.27,
+      "iters": 2000
+    },
+    {
+      "impl": "msplat",
+      "ply": "/tmp/timelapse/msplat-ladder/ms_003000.ply",
+      "t": 13.93,
+      "iters": 3000
+    },
+    {
+      "impl": "msplat",
+      "ply": "/tmp/timelapse/msplat-ladder/ms_004000.ply",
+      "t": 21.91,
+      "iters": 4000
+    },
+    {
+      "impl": "msplat",
+      "ply": "/tmp/timelapse/msplat-ladder/ms_005000.ply",
+      "t": 31.15,
+      "iters": 5000
+    },
+    {
+      "impl": "msplat",
+      "ply": "/tmp/timelapse/msplat-ladder/ms_006000.ply",
+      "t": 41.37,
+      "iters": 6000
+    },
+    {
+      "impl": "msplat",
+      "ply": "/tmp/timelapse/msplat-ladder/ms_006600.ply",
+      "t": 58.53,
+      "iters": 6600
+    },
+    {
+      "impl": "msplat",
+      "ply": "/tmp/timelapse/msplat-ladder/ms_009400.ply",
+      "t": 115.69,
+      "iters": 9400
+    },
+    {
+      "impl": "msplat",
+      "ply": "/tmp/timelapse/msplat-ladder/ms_011500.ply",
+      "t": 162.82,
+      "iters": 11500
+    },
+    {
+      "impl": "msplat",
+      "ply": "/tmp/timelapse/msplat-ladder/ms_013300.ply",
+      "t": 217.24,
+      "iters": 13300
+    },
+    {
+      "impl": "msplat",
+      "ply": "/tmp/timelapse/msplat-ladder/ms_015000.ply",
+      "t": 269.11,
+      "iters": 15000
+    },
+    {
+      "impl": "msplat",
+      "ply": "/tmp/timelapse/msplat-ladder/ms_016400.ply",
+      "t": 306.39,
+      "iters": 16400
+    },
+    {
+      "impl": "msplat",
+      "ply": "/tmp/timelapse/msplat-ladder/ms_017700.ply",
+      "t": 345.1,
+      "iters": 17700
+    },
+    {
+      "impl": "msplat",
+      "ply": "/tmp/timelapse/msplat-ladder/ms_019000.ply",
+      "t": 388.93,
+      "iters": 19000
+    },
+    {
+      "impl": "msplat",
+      "done_at": 388.93
+    }
+  ]
+}

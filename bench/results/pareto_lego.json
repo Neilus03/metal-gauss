@@ -1,0 +1,104 @@
+{
+  "scene": "data/nerf_synthetic/lego",
+  "budget": 300000,
+  "resolution": 800,
+  "rows": [
+    {
+      "impl": "metal-gauss",
+      "iters": 500,
+      "ok": true,
+      "wall_s": 98.7,
+      "psnr": 12.7808,
+      "n_splats": 278571
+    },
+    {
+      "impl": "metal-gauss",
+      "iters": 1000,
+      "ok": true,
+      "wall_s": 155.2,
+      "psnr": 17.1288,
+      "n_splats": 300000
+    },
+    {
+      "impl": "metal-gauss",
+      "iters": 2000,
+      "ok": true,
+      "wall_s": 253.2,
+      "psnr": 22.669,
+      "n_splats": 300000
+    },
+    {
+      "impl": "metal-gauss",
+      "iters": 4000,
+      "ok": true,
+      "wall_s": 420.2,
+      "psnr": 26.3433,
+      "n_splats": 300000
+    },
+    {
+      "impl": "metal-gauss",
+      "iters": 7000,
+      "ok": true,
+      "wall_s": 577.9,
+      "psnr": 29.6046,
+      "n_splats": 300000
+    },
+    {
+      "impl": "metal-gauss",
+      "iters": 15000,
+      "ok": true,
+      "wall_s": 1096.2,
+      "psnr": 33.7274,
+      "n_splats": 300000
+    },
+    {
+      "impl": "msplat",
+      "iters": 500,
+      "ok": true,
+      "wall_s": 5.7,
+      "psnr": 10.0712,
+      "n_splats": 100000
+    },
+    {
+      "impl": "msplat",
+      "iters": 1000,
+      "ok": true,
+      "wall_s": 8.7,
+      "psnr": 10.2148,
+      "n_splats": 100000
+    },
+    {
+      "impl": "msplat",
+      "iters": 2000,
+      "ok": true,
+      "wall_s": 8.5,
+      "psnr": 7.0059,
+      "n_splats": 11060
+    },
+    {
+      "impl": "msplat",
+      "iters": 4000,
+      "ok": true,
+      "wall_s": 20.6,
+      "psnr": 3.5419,
+      "n_splats": 34023
+    },
+    {
+      "impl": "msplat",
+      "iters": 7000,
+      "ok": true,
+      "wall_s": 71.6,
+      "psnr": 6.5423,
+      "n_splats": 53897
+    },
+    {
+      "impl": "msplat",
+      "iters": 15000,
+      "ok": true,
+      "wall_s": 308.6,
+      "psnr": 9.5502,
+      "n_splats": 124646
+    }
+  ],
+  "provenance": "incomplete"
+}

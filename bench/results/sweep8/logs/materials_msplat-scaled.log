@@ -1,0 +1,8 @@
+  msplat          500 b= auto    0.50 min        12.111 dB    100,000 splats
+  msplat         1000 b= auto    1.03 min        14.237 dB    100,000 splats
+  msplat         2000 b= auto    0.76 min        13.007 dB     48,268 splats
+  msplat         4000 b= auto    1.59 min        13.187 dB     85,006 splats
+  msplat         7000 b= auto    2.55 min        12.935 dB    111,478 splats
+  msplat        15000 b= auto    5.21 min        13.817 dB    128,184 splats
+
+-> bench/results/sweep8/materials_msplat-scaled.json

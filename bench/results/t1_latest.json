@@ -1,0 +1,73 @@
+{
+  "steps": 1000,
+  "budget": 600000,
+  "wall_clock_s": 36.9,
+  "final_psnr": 22.602783364401112,
+  "log": [
+    {
+      "step": 100,
+      "active": 214285
+    },
+    {
+      "step": 200,
+      "active": 278571
+    },
+    {
+      "step": 300,
+      "relocated": 201
+    },
+    {
+      "step": 300,
+      "active": 342857
+    },
+    {
+      "step": 400,
+      "relocated": 1400
+    },
+    {
+      "step": 400,
+      "active": 407142
+    },
+    {
+      "step": 500,
+      "relocated": 2791
+    },
+    {
+      "step": 500,
+      "active": 471428
+    },
+    {
+      "step": 500,
+      "psnr": 16.172468307142324,
+      "wall_s": 15.3,
+      "active": 471428
+    },
+    {
+      "step": 600,
+      "relocated": 4708
+    },
+    {
+      "step": 600,
+      "active": 535714
+    },
+    {
+      "step": 700,
+      "relocated": 6728
+    },
+    {
+      "step": 700,
+      "active": 600000
+    },
+    {
+      "step": 800,
+      "relocated": 8316
+    },
+    {
+      "step": 1000,
+      "psnr": 22.602783364401112,
+      "wall_s": 36.9,
+      "active": 600000
+    }
+  ],
+  "provenance": "incomplete"
+}

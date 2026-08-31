@@ -1,0 +1,8 @@
+  msplat          500 b= auto    0.38 min        13.487 dB    100,000 splats
+  msplat         1000 b= auto    0.80 min        16.436 dB    100,000 splats
+  msplat         2000 b= auto    0.71 min        22.104 dB     52,999 splats
+  msplat         4000 b= auto    1.60 min        21.782 dB     84,127 splats
+  msplat         7000 b= auto    2.83 min        23.240 dB    105,717 splats
+  msplat        15000 b= auto    5.54 min        21.910 dB    120,997 splats
+
+-> bench/results/sweep8/mic_msplat-scaled.json

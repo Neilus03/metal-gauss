@@ -1,0 +1,677 @@
+{
+  "steps": 10000,
+  "budget": 600000,
+  "wall_clock_s": 1712.3,
+  "final_psnr": 27.425821185290882,
+  "log": [
+    {
+      "step": 100,
+      "active": 156428
+    },
+    {
+      "step": 200,
+      "active": 162857
+    },
+    {
+      "step": 300,
+      "relocated": 45
+    },
+    {
+      "step": 300,
+      "active": 169285
+    },
+    {
+      "step": 400,
+      "relocated": 194
+    },
+    {
+      "step": 400,
+      "active": 175714
+    },
+    {
+      "step": 500,
+      "relocated": 323
+    },
+    {
+      "step": 500,
+      "active": 182142
+    },
+    {
+      "step": 600,
+      "relocated": 569
+    },
+    {
+      "step": 600,
+      "active": 188571
+    },
+    {
+      "step": 700,
+      "relocated": 803
+    },
+    {
+      "step": 700,
+      "active": 195000
+    },
+    {
+      "step": 800,
+      "relocated": 1036
+    },
+    {
+      "step": 800,
+      "active": 201428
+    },
+    {
+      "step": 900,
+      "relocated": 1175
+    },
+    {
+      "step": 900,
+      "active": 207857
+    },
+    {
+      "step": 1000,
+      "relocated": 1424
+    },
+    {
+      "step": 1000,
+      "active": 214285
+    },
+    {
+      "step": 1000,
+      "psnr": 21.58064512201985,
+      "wall_s": 133.9,
+      "active": 214285
+    },
+    {
+      "step": 1100,
+      "relocated": 1587
+    },
+    {
+      "step": 1100,
+      "active": 220714
+    },
+    {
+      "step": 1200,
+      "relocated": 1853
+    },
+    {
+      "step": 1200,
+      "active": 227142
+    },
+    {
+      "step": 1300,
+      "relocated": 2026
+    },
+    {
+      "step": 1300,
+      "active": 233571
+    },
+    {
+      "step": 1400,
+      "relocated": 2042
+    },
+    {
+      "step": 1400,
+      "active": 240000
+    },
+    {
+      "step": 1500,
+      "relocated": 2220
+    },
+    {
+      "step": 1500,
+      "active": 246428
+    },
+    {
+      "step": 1600,
+      "relocated": 2205
+    },
+    {
+      "step": 1600,
+      "active": 252857
+    },
+    {
+      "step": 1700,
+      "relocated": 2439
+    },
+    {
+      "step": 1700,
+      "active": 259285
+    },
+    {
+      "step": 1800,
+      "relocated": 2536
+    },
+    {
+      "step": 1800,
+      "active": 265714
+    },
+    {
+      "step": 1900,
+      "relocated": 2612
+    },
+    {
+      "step": 1900,
+      "active": 272142
+    },
+    {
+      "step": 2000,
+      "relocated": 2767
+    },
+    {
+      "step": 2000,
+      "active": 278571
+    },
+    {
+      "step": 2000,
+      "psnr": 24.267219995976205,
+      "wall_s": 272.5,
+      "active": 278571
+    },
+    {
+      "step": 2100,
+      "relocated": 2802
+    },
+    {
+      "step": 2100,
+      "active": 285000
+    },
+    {
+      "step": 2200,
+      "relocated": 2752
+    },
+    {
+      "step": 2200,
+      "active": 291428
+    },
+    {
+      "step": 2300,
+      "relocated": 2904
+    },
+    {
+      "step": 2300,
+      "active": 297857
+    },
+    {
+      "step": 2400,
+      "relocated": 2975
+    },
+    {
+      "step": 2400,
+      "active": 304285
+    },
+    {
+      "step": 2500,
+      "relocated": 3080
+    },
+    {
+      "step": 2500,
+      "active": 310714
+    },
+    {
+      "step": 2600,
+      "relocated": 3009
+    },
+    {
+      "step": 2600,
+      "active": 317142
+    },
+    {
+      "step": 2700,
+      "relocated": 3032
+    },
+    {
+      "step": 2700,
+      "active": 323571
+    },
+    {
+      "step": 2800,
+      "relocated": 3419
+    },
+    {
+      "step": 2800,
+      "active": 330000
+    },
+    {
+      "step": 2900,
+      "relocated": 3107
+    },
+    {
+      "step": 2900,
+      "active": 336428
+    },
+    {
+      "step": 3000,
+      "relocated": 3192
+    },
+    {
+      "step": 3000,
+      "active": 342857
+    },
+    {
+      "step": 3000,
+      "psnr": 25.481501463859797,
+      "wall_s": 429.5,
+      "active": 342857
+    },
+    {
+      "step": 3100,
+      "relocated": 3261
+    },
+    {
+      "step": 3100,
+      "active": 349285
+    },
+    {
+      "step": 3200,
+      "relocated": 3500
+    },
+    {
+      "step": 3200,
+      "active": 355714
+    },
+    {
+      "step": 3300,
+      "relocated": 3291
+    },
+    {
+      "step": 3300,
+      "active": 362142
+    },
+    {
+      "step": 3400,
+      "relocated": 3407
+    },
+    {
+      "step": 3400,
+      "active": 368571
+    },
+    {
+      "step": 3500,
+      "relocated": 3488
+    },
+    {
+      "step": 3500,
+      "active": 375000
+    },
+    {
+      "step": 3600,
+      "relocated": 3504
+    },
+    {
+      "step": 3600,
+      "active": 381428
+    },
+    {
+      "step": 3700,
+      "relocated": 3501
+    },
+    {
+      "step": 3700,
+      "active": 387857
+    },
+    {
+      "step": 3800,
+      "relocated": 3800
+    },
+    {
+      "step": 3800,
+      "active": 394285
+    },
+    {
+      "step": 3900,
+      "relocated": 3672
+    },
+    {
+      "step": 3900,
+      "active": 400714
+    },
+    {
+      "step": 4000,
+      "relocated": 3666
+    },
+    {
+      "step": 4000,
+      "active": 407142
+    },
+    {
+      "step": 4000,
+      "psnr": 25.827604410275708,
+      "wall_s": 590.7,
+      "active": 407142
+    },
+    {
+      "step": 4100,
+      "relocated": 3812
+    },
+    {
+      "step": 4100,
+      "active": 413571
+    },
+    {
+      "step": 4200,
+      "relocated": 3576
+    },
+    {
+      "step": 4200,
+      "active": 420000
+    },
+    {
+      "step": 4300,
+      "relocated": 3707
+    },
+    {
+      "step": 4300,
+      "active": 426428
+    },
+    {
+      "step": 4400,
+      "relocated": 3830
+    },
+    {
+      "step": 4400,
+      "active": 432857
+    },
+    {
+      "step": 4500,
+      "relocated": 3665
+    },
+    {
+      "step": 4500,
+      "active": 439285
+    },
+    {
+      "step": 4600,
+      "relocated": 3794
+    },
+    {
+      "step": 4600,
+      "active": 445714
+    },
+    {
+      "step": 4700,
+      "relocated": 3923
+    },
+    {
+      "step": 4700,
+      "active": 452142
+    },
+    {
+      "step": 4800,
+      "relocated": 3663
+    },
+    {
+      "step": 4800,
+      "active": 458571
+    },
+    {
+      "step": 4900,
+      "relocated": 3837
+    },
+    {
+      "step": 4900,
+      "active": 465000
+    },
+    {
+      "step": 5000,
+      "relocated": 3872
+    },
+    {
+      "step": 5000,
+      "active": 471428
+    },
+    {
+      "step": 5000,
+      "psnr": 26.266886440184173,
+      "wall_s": 757.5,
+      "active": 471428
+    },
+    {
+      "step": 5100,
+      "relocated": 3997
+    },
+    {
+      "step": 5100,
+      "active": 477857
+    },
+    {
+      "step": 5200,
+      "relocated": 3834
+    },
+    {
+      "step": 5200,
+      "active": 484285
+    },
+    {
+      "step": 5300,
+      "relocated": 3823
+    },
+    {
+      "step": 5300,
+      "active": 490714
+    },
+    {
+      "step": 5400,
+      "relocated": 4206
+    },
+    {
+      "step": 5400,
+      "active": 497142
+    },
+    {
+      "step": 5500,
+      "relocated": 4006
+    },
+    {
+      "step": 5500,
+      "active": 503571
+    },
+    {
+      "step": 5600,
+      "relocated": 3931
+    },
+    {
+      "step": 5600,
+      "active": 510000
+    },
+    {
+      "step": 5700,
+      "relocated": 4137
+    },
+    {
+      "step": 5700,
+      "active": 516428
+    },
+    {
+      "step": 5800,
+      "relocated": 3765
+    },
+    {
+      "step": 5800,
+      "active": 522857
+    },
+    {
+      "step": 5900,
+      "relocated": 3876
+    },
+    {
+      "step": 5900,
+      "active": 529285
+    },
+    {
+      "step": 6000,
+      "relocated": 4117
+    },
+    {
+      "step": 6000,
+      "active": 535714
+    },
+    {
+      "step": 6000,
+      "psnr": 26.392137313870947,
+      "wall_s": 935.1,
+      "active": 535714
+    },
+    {
+      "step": 6100,
+      "relocated": 3983
+    },
+    {
+      "step": 6100,
+      "active": 542142
+    },
+    {
+      "step": 6200,
+      "relocated": 3968
+    },
+    {
+      "step": 6200,
+      "active": 548571
+    },
+    {
+      "step": 6300,
+      "relocated": 3819
+    },
+    {
+      "step": 6300,
+      "active": 555000
+    },
+    {
+      "step": 6400,
+      "relocated": 3961
+    },
+    {
+      "step": 6400,
+      "active": 561428
+    },
+    {
+      "step": 6500,
+      "relocated": 4141
+    },
+    {
+      "step": 6500,
+      "active": 567857
+    },
+    {
+      "step": 6600,
+      "relocated": 4070
+    },
+    {
+      "step": 6600,
+      "active": 574285
+    },
+    {
+      "step": 6700,
+      "relocated": 3853
+    },
+    {
+      "step": 6700,
+      "active": 580714
+    },
+    {
+      "step": 6800,
+      "relocated": 4102
+    },
+    {
+      "step": 6800,
+      "active": 587142
+    },
+    {
+      "step": 6900,
+      "relocated": 3983
+    },
+    {
+      "step": 6900,
+      "active": 593571
+    },
+    {
+      "step": 7000,
+      "relocated": 3782
+    },
+    {
+      "step": 7000,
+      "active": 600000
+    },
+    {
+      "step": 7000,
+      "psnr": 26.912209639682107,
+      "wall_s": 1121.2,
+      "active": 600000
+    },
+    {
+      "step": 7100,
+      "relocated": 3826
+    },
+    {
+      "step": 7200,
+      "relocated": 3106
+    },
+    {
+      "step": 7300,
+      "relocated": 3037
+    },
+    {
+      "step": 7400,
+      "relocated": 2943
+    },
+    {
+      "step": 7500,
+      "relocated": 2982
+    },
+    {
+      "step": 7600,
+      "relocated": 2856
+    },
+    {
+      "step": 7700,
+      "relocated": 2858
+    },
+    {
+      "step": 7800,
+      "relocated": 2712
+    },
+    {
+      "step": 7900,
+      "relocated": 2728
+    },
+    {
+      "step": 8000,
+      "relocated": 2724
+    },
+    {
+      "step": 8000,
+      "psnr": 27.083857582602406,
+      "wall_s": 1317.5,
+      "active": 600000
+    },
+    {
+      "step": 8100,
+      "relocated": 2650
+    },
+    {
+      "step": 8200,
+      "relocated": 2771
+    },
+    {
+      "step": 8300,
+      "relocated": 2619
+    },
+    {
+      "step": 8400,
+      "relocated": 2455
+    },
+    {
+      "step": 9000,
+      "psnr": 27.213825412543407,
+      "wall_s": 1514.2,
+      "active": 600000
+    },
+    {
+      "step": 10000,
+      "psnr": 27.425821185290882,
+      "wall_s": 1712.3,
+      "active": 600000
+    }
+  ],
+  "provenance": "incomplete"
+}

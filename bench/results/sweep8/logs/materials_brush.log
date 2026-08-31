@@ -1,0 +1,8 @@
+  brush           500 b= auto    0.43 min         9.652 dB     12,058 splats
+  brush          1000 b= auto    0.79 min        10.345 dB     13,230 splats
+  brush          2000 b= auto    1.55 min        16.119 dB     13,340 splats
+  brush          4000 b= auto    3.16 min        21.135 dB      8,120 splats
+  brush          7000 b= auto    5.68 min        23.726 dB     20,473 splats
+  brush         15000 b= auto   12.88 min        27.278 dB     51,244 splats
+
+-> bench/results/sweep8/materials_brush.json

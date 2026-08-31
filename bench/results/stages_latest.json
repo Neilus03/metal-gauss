@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "env": {
+    "git": "8065b0f",
+    "dirty": true,
+    "torch": "2.13.0",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "machine": "arm64"
+  },
+  "config": {
+    "benchmark": "stages"
+  },
+  "data": [
+    {
+      "gaussians": 600000,
+      "res": "270x480",
+      "tile": 16,
+      "fwd_ms": 10.8,
+      "fwd_bwd_ms": 29.9
+    },
+    {
+      "gaussians": 600000,
+      "res": "900x1600",
+      "tile": 16,
+      "fwd_ms": 20.0,
+      "fwd_bwd_ms": 59.0
+    },
+    {
+      "gaussians": 1000000,
+      "res": "270x480",
+      "tile": 16,
+      "fwd_ms": 17.8,
+      "fwd_bwd_ms": 48.4
+    },
+    {
+      "gaussians": 1000000,
+      "res": "900x1600",
+      "tile": 16,
+      "fwd_ms": 33.8,
+      "fwd_bwd_ms": 90.4
+    },
+    {
+      "gaussians": 1955058,
+      "res": "270x480",
+      "tile": 16,
+      "fwd_ms": 37.9,
+      "fwd_bwd_ms": 93.8
+    },
+    {
+      "gaussians": 1955058,
+      "res": "900x1600",
+      "tile": 16,
+      "fwd_ms": 64.8,
+      "fwd_bwd_ms": 167.6
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+  spirula    500    0.35 min        13.498 dB     99,847 splats
+  spirula   1000    0.63 min        15.811 dB    108,595 splats
+  spirula   2000    1.28 min        17.617 dB    188,336 splats
+  spirula   4000    3.53 min        19.923 dB    509,662 splats
+  spirula   7000    9.75 min        25.685 dB    996,926 splats
+  spirula  15000   29.23 min        31.745 dB    998,348 splats
+
+-> bench/results/sweep8/lego_spirula.json

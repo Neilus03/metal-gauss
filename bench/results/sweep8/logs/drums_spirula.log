@@ -1,0 +1,8 @@
+  spirula    500    0.34 min        12.147 dB     99,537 splats
+  spirula   1000    0.62 min        15.493 dB    105,896 splats
+  spirula   2000    1.29 min        17.971 dB    187,360 splats
+  spirula   4000    3.64 min        19.002 dB    500,026 splats
+  spirula   7000    9.78 min        20.925 dB    995,672 splats
+  spirula  15000   28.72 min        24.901 dB    996,571 splats
+
+-> bench/results/sweep8/drums_spirula.json

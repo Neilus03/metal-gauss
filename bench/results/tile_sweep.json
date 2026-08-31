@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "env": {
+    "git": "b100e1d",
+    "dirty": true,
+    "torch": "2.13.0",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "machine": "arm64"
+  },
+  "config": {
+    "gaussians": 100000,
+    "res": 800,
+    "iters": 25
+  },
+  "rows": [
+    {
+      "tile": 8,
+      "fwd_ms": 22.812,
+      "fwd_bwd_ms": 42.965,
+      "isect": 1875197,
+      "tiles": 10000
+    },
+    {
+      "tile": 16,
+      "fwd_ms": 8.906,
+      "fwd_bwd_ms": 34.449,
+      "isect": 724253,
+      "tiles": 2500
+    },
+    {
+      "tile": 32,
+      "fwd_ms": 7.955,
+      "fwd_bwd_ms": 52.786,
+      "isect": 345957,
+      "tiles": 625
+    }
+  ]
+}

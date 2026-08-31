@@ -1,0 +1,61 @@
+{
+  "scene": "data/nerf_synthetic/drums",
+  "resolution": 800,
+  "msplat_variant": "stock",
+  "rows": [
+    {
+      "impl": "msplat",
+      "iters": 500,
+      "msplat_variant": "stock",
+      "ok": true,
+      "wall_s": 6.1,
+      "psnr": 11.6946,
+      "n_splats": 100000
+    },
+    {
+      "impl": "msplat",
+      "iters": 1000,
+      "msplat_variant": "stock",
+      "ok": true,
+      "wall_s": 10.5,
+      "psnr": 14.9856,
+      "n_splats": 100000
+    },
+    {
+      "impl": "msplat",
+      "iters": 2000,
+      "msplat_variant": "stock",
+      "ok": true,
+      "wall_s": 10.2,
+      "psnr": 19.2706,
+      "n_splats": 16894
+    },
+    {
+      "impl": "msplat",
+      "iters": 4000,
+      "msplat_variant": "stock",
+      "ok": true,
+      "wall_s": 23.8,
+      "psnr": 19.1035,
+      "n_splats": 48164
+    },
+    {
+      "impl": "msplat",
+      "iters": 7000,
+      "msplat_variant": "stock",
+      "ok": true,
+      "wall_s": 57.9,
+      "psnr": 19.4336,
+      "n_splats": 61145
+    },
+    {
+      "impl": "msplat",
+      "iters": 15000,
+      "msplat_variant": "stock",
+      "ok": true,
+      "wall_s": 273.5,
+      "psnr": 18.4511,
+      "n_splats": 139159
+    }
+  ]
+}

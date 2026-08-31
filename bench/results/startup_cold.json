@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "env": {
+    "git": "f0e2d68",
+    "dirty": true,
+    "torch": "2.13.0",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "machine": "arm64"
+  },
+  "config": {
+    "scene": "lego",
+    "steps": 50,
+    "repeats": 3,
+    "cold_ext": true
+  },
+  "rows": [
+    {
+      "harness_s": 26.0,
+      "train_s": 17.6,
+      "startup_s": 8.4,
+      "run": 0,
+      "ext_cold": true
+    },
+    {
+      "harness_s": 14.6,
+      "train_s": 5.9,
+      "startup_s": 8.7,
+      "run": 1,
+      "ext_cold": false
+    },
+    {
+      "harness_s": 14.2,
+      "train_s": 5.6,
+      "startup_s": 8.6,
+      "run": 2,
+      "ext_cold": false
+    }
+  ]
+}

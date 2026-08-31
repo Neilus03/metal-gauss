@@ -1,0 +1,8 @@
+  brush           500 b= auto    0.42 min        14.187 dB     10,523 splats
+  brush          1000 b= auto    0.77 min        15.077 dB     10,522 splats
+  brush          2000 b= auto    1.50 min        16.766 dB      1,504 splats
+  brush          4000 b= auto    3.01 min        18.078 dB      2,923 splats
+  brush          7000 b= auto    5.27 min        19.534 dB      5,594 splats
+  brush         15000 b= auto   11.65 min        20.901 dB     14,116 splats
+
+-> bench/results/sweep8/mic_brush.json

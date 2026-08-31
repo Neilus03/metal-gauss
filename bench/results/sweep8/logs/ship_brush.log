@@ -1,0 +1,8 @@
+  brush           500 b= auto    0.41 min         6.764 dB     10,532 splats
+  brush          1000 b= auto    0.77 min         8.294 dB     10,532 splats
+  brush          2000 b= auto    1.56 min        14.361 dB      2,054 splats
+  brush          4000 b= auto    3.18 min        17.402 dB      3,388 splats
+  brush          7000 b= auto    5.69 min        20.043 dB      5,768 splats
+  brush         15000 b= auto   12.70 min        23.834 dB     18,087 splats
+
+-> bench/results/sweep8/ship_brush.json

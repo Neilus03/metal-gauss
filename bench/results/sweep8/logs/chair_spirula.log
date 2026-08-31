@@ -1,0 +1,8 @@
+  spirula    500    0.34 min        14.541 dB     99,789 splats
+  spirula   1000    0.64 min        15.180 dB    108,988 splats
+  spirula   2000    1.37 min        19.201 dB    183,430 splats
+  spirula   4000    3.65 min        22.810 dB    501,228 splats
+  spirula   7000   10.44 min        24.350 dB    994,735 splats
+  spirula  15000   28.39 min        32.323 dB    994,550 splats
+
+-> bench/results/sweep8/chair_spirula.json

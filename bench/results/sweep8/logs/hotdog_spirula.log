@@ -1,0 +1,8 @@
+  spirula    500    0.38 min        16.927 dB     99,865 splats
+  spirula   1000    0.67 min        18.336 dB    109,310 splats
+  spirula   2000    1.41 min        20.160 dB    184,693 splats
+  spirula   4000    3.84 min        22.599 dB    489,585 splats
+  spirula   7000   10.79 min        29.083 dB    992,229 splats
+  spirula  15000   30.17 min        34.654 dB    994,225 splats
+
+-> bench/results/sweep8/hotdog_spirula.json

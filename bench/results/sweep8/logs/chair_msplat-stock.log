@@ -1,0 +1,8 @@
+  msplat          500 b= auto    0.09 min        14.204 dB    100,000 splats
+  msplat         1000 b= auto    0.16 min        15.653 dB    100,000 splats
+  msplat         2000 b= auto    0.15 min        22.568 dB     15,900 splats
+  msplat         4000 b= auto    0.33 min        22.939 dB     33,634 splats
+  msplat         7000 b= auto    0.91 min        24.561 dB     40,545 splats
+  msplat        15000 b= auto    3.90 min        26.628 dB     83,780 splats
+
+-> bench/results/sweep8/chair_msplat-stock.json

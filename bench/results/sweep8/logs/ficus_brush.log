@@ -1,0 +1,8 @@
+  brush           500 b= auto    0.44 min        15.470 dB     12,037 splats
+  brush          1000 b= auto    0.79 min        16.158 dB     12,721 splats
+  brush          2000 b= auto    1.54 min        19.592 dB      6,298 splats
+  brush          4000 b= auto    3.05 min        21.698 dB      4,369 splats
+  brush          7000 b= auto    5.39 min        23.103 dB      9,196 splats
+  brush         15000 b= auto   11.93 min        26.078 dB     17,591 splats
+
+-> bench/results/sweep8/ficus_brush.json

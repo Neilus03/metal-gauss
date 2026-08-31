@@ -1,0 +1,26 @@
+{
+  "protocol": {
+    "steps": 7000,
+    "budget": 300000,
+    "resolution": 800,
+    "split": "official Blender train/test",
+    "background": "white"
+  },
+  "mean_psnr": 20.455,
+  "total_wall_s": 789.1,
+  "scenes": [
+    {
+      "scene": "ficus",
+      "status": "ok",
+      "psnr": 22.3,
+      "wall_s": 399.2
+    },
+    {
+      "scene": "materials",
+      "status": "ok",
+      "psnr": 18.61,
+      "wall_s": 389.8
+    }
+  ],
+  "provenance": "incomplete"
+}

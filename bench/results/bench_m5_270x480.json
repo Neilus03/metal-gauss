@@ -1,0 +1,21 @@
+{
+  "torch_ref": {
+    "forward_s": 2.9533,
+    "forward_backward_s": 46.732
+  },
+  "metal": {
+    "forward_s": 0.0939,
+    "forward_backward_s": 0.1373
+  },
+  "speedup": {
+    "forward": 31.45,
+    "forward_backward": 340.36
+  },
+  "scene": {
+    "gaussians": 1955058,
+    "width": 270,
+    "height": 480,
+    "ply": "data_room1/03_splats/exports/splat_30000.ply"
+  },
+  "provenance": "incomplete"
+}

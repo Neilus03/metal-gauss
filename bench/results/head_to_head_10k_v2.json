@@ -1,0 +1,61 @@
+{
+  "scene": "/tmp/cmp_data/room1_pinhole",
+  "iters": 10000,
+  "rows": [
+    {
+      "impl": "metal-gauss",
+      "ok": true,
+      "returncode": 0,
+      "wall_s": 714.4,
+      "psnr": 27.62159578082874,
+      "n_splats": 600000,
+      "resolved": {
+        "appearance": "off",
+        "appearance_reg": 0.01,
+        "blender": null,
+        "budget": 600000,
+        "colmap": "/tmp/cmp_data/room1_pinhole/sparse/0",
+        "densify_gate_frac": 0.3,
+        "densify_weight": "opacity_grad",
+        "eval_every": 10000,
+        "eval_split_every": 8,
+        "export": null,
+        "fused_adam": true,
+        "grow": true,
+        "grow_until_frac": 0.7,
+        "images": "/tmp/cmp_data/room1_pinhole/images",
+        "lr_appearance": 0.001,
+        "lr_means": 0.0002,
+        "lr_means_end": 2e-06,
+        "lr_opac": 0.01,
+        "lr_scene_scaled": true,
+        "max_resolution": 1600,
+        "noise_weight": 40000.0,
+        "num_downscales": 2,
+        "opac_reg": 0.01,
+        "out": null,
+        "relocate_every": 100,
+        "relocate_until_frac": 0.85,
+        "report": "/var/folders/28/jp1bnbdx18zclmsr7zzsfdk40000gn/T/tmpnqe28677.report.json",
+        "resolution_schedule": 3333,
+        "scale_reg": 0.01,
+        "seed": 0,
+        "selective_adam": false,
+        "sh_lr_div": 20.0,
+        "sh_warmup": 1000,
+        "start_active": 150000,
+        "steps": 10000,
+        "steps_scaler": 1.0
+      },
+      "env": {
+        "git": "bbbe17e",
+        "dirty": false,
+        "torch": "2.13.0",
+        "platform": "macOS-26.5.2-arm64-arm-64bit",
+        "machine": "arm64"
+      },
+      "cmd": "/private/tmp/gb_test/bin/python -m metal_gauss.train --report /var/folders/28/jp1bnbdx18zclmsr7zzsfdk40000gn/T/tmpnqe28677.report.json --colmap /tmp/cmp_data/room1_pinhole/sparse/0 --images /tmp/cmp_data/room1_pinhole/images --steps 10000 --budget 600000 --max-resolution 1600 --eval-every 10000",
+      "tail": ""
+    }
+  ]
+}

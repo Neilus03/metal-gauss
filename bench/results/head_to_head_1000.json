@@ -1,0 +1,52 @@
+{
+  "scene": "/tmp/cmp_data/room1_pinhole",
+  "iters": 1000,
+  "rows": [
+    {
+      "impl": "metal-gauss",
+      "ok": true,
+      "returncode": 0,
+      "wall_s": 110.8,
+      "psnr": 23.3,
+      "cmd": "/private/tmp/gb_test/bin/python -m metal_gauss.train --colmap /tmp/cmp_data/room1_pinhole/sparse/0 --images /tmp/cmp_data/room1_pinhole/images --steps 1000 --budget 600000 --max-resolution 1600 --eval-every 1000",
+      "tail": "141 train views, 21 held out, 39,361 sparse points, budget 600,000\nscene extent 9.51, initial means lr 1.90e-03\nstep    100  loss 0.2879  (87 ms/step)\nstep    500  loss 0.1333  (92 ms/step)\nstep   1000  loss 0.0708  heldout PSNR 23.30 dB  600k splats  106s  (106 ms/step)"
+    },
+    {
+      "impl": "msplat",
+      "ok": true,
+      "returncode": 0,
+      "wall_s": 8.6,
+      "psnr": 21.3708,
+      "cmd": "/tmp/cmp_msplat/bin/msplat-train --input /tmp/cmp_data/room1_pinhole --num-iters 1000 --eval --output /tmp/cmp_out/msplat.ply",
+      "tail": "step=   300  splats=  39,361  ms=2.3\nstep=   400  splats=  39,361  ms=2.6\nstep=   500  splats=  39,361  ms=3.5\nstep=   600  splats=  39,361  ms=2.7\nstep=   700  splats=  39,361  ms=3.1\nstep=   800  splats=  39,361  ms=2.3\nstep=   900  splats=  39,361  ms=2.4\nstep=  1000  splats=  39,361  ms=2.4\nSaved /tmp/cmp_out/msplat.ply\n\n=== Evaluation (21 test views) ===\n  PSNR:  21.3708\n  SSIM:  0.7685\n  L1:    0.0641\n  Gaussians: 39,361"
+    },
+    {
+      "impl": "splat-apple-mlx",
+      "ok": true,
+      "returncode": 0,
+      "wall_s": 1092.3,
+      "psnr": 19.06,
+      "cmd": "/tmp/cmp_sa/bin/python train_mlx.py --data_dir /tmp/cmp_data/room1_pinhole --img_folder images --num_iterations 1000 --rasterizer cpp",
+      "tail": "Loss: 0.1388 PSNR: 18.11:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 988/1000 [17:50<00:15,  1.25s/it]\nLoss: 0.1388 PSNR: 18.11:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 989/1000 [17:51<00:13,  1.22s/it]\nLoss: 0.1388 PSNR: 18.11:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 990/1000 [17:53<00:12,  1.30s/it]\nLoss: 0.0981 PSNR: 19.06:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 990/1000 [17:54<00:12,  1.30s/it]\nLoss: 0.0981 PSNR: 19.06:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 991/1000 [17:54<00:11,  1.28s/it]\nLoss: 0.0981 PSNR: 19.06:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 992/1000 [17:55<00:09,  1.24s/it]\nLoss: 0.0981 PSNR: 19.06:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 993/1000 [17:56<00:08,  1.22s/it]\nLoss: 0.0981 PSNR: 19.06:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 994/1000 [17:58<00:07,  1.27s/it]\nLoss: 0.0981 PSNR: 19.06: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 995/1000 [17:59<00:06,  1.23s/it]\nLoss: 0.0981 PSNR: 19.06: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 996/1000 [18:00<00:04,  1.20s/it]\nLoss: 0.0981 PSNR: 19.06: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 997/1000 [18:01<00:03,  1.18s/it]\nLoss: 0.0981 PSNR: 19.06: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 998/1000 [18:02<00:02,  1.16s/it]\nLoss: 0.0981 PSNR: 19.06: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 999/1000 [18:04<00:01,  1.23s/it]\nLoss: 0.0981 PSNR: 19.06: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 1000/1000 [18:05<00:00,  1.28s/it]\nLoss: 0.0981 PSNR: 19.06: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 1000/1000 [18:05<00:00,  1.09s/it]"
+    },
+    {
+      "impl": "splat-apple-torch",
+      "ok": true,
+      "returncode": 0,
+      "wall_s": 1303.0,
+      "psnr": 11.99,
+      "cmd": "/tmp/cmp_sa/bin/python train_torch.py --data_dir /tmp/cmp_data/room1_pinhole --img_folder images --num_iterations 1000 --device mps --rasterizer cpp",
+      "tail": "Loss: 0.2442 PSNR: 11.72:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 988/1000 [21:14<00:15,  1.27s/it]\nLoss: 0.2442 PSNR: 11.72:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 989/1000 [21:15<00:13,  1.18s/it]\nLoss: 0.2442 PSNR: 11.72:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 990/1000 [21:18<00:18,  1.81s/it]\nLoss: 0.2455 PSNR: 11.99:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 990/1000 [21:20<00:18,  1.81s/it]\nLoss: 0.2455 PSNR: 11.99:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 991/1000 [21:20<00:15,  1.75s/it]\nLoss: 0.2455 PSNR: 11.99:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 992/1000 [21:21<00:13,  1.63s/it]\nLoss: 0.2455 PSNR: 11.99:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 993/1000 [21:23<00:10,  1.47s/it]\nLoss: 0.2455 PSNR: 11.99:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 994/1000 [21:24<00:07,  1.33s/it]\nLoss: 0.2455 PSNR: 11.99: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 995/1000 [21:25<00:06,  1.26s/it]\nLoss: 0.2455 PSNR: 11.99: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 996/1000 [21:28<00:07,  1.89s/it]\nLoss: 0.2455 PSNR: 11.99: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 997/1000 [21:29<00:05,  1.70s/it]\nLoss: 0.2455 PSNR: 11.99: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 998/1000 [21:30<00:03,  1.53s/it]\nLoss: 0.2455 PSNR: 11.99: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 999/1000 [21:32<00:01,  1.45s/it]\nLoss: 0.2455 PSNR: 11.99: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 1000/1000 [21:33<00:00,  1.32s/it]\nLoss: 0.2455 PSNR: 11.99: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 1000/1000 [21:33<00:00,  1.29s/it]"
+    },
+    {
+      "impl": "opensplat",
+      "ok": false,
+      "returncode": 1,
+      "wall_s": 1.0,
+      "psnr": null,
+      "cmd": "/tmp/cmp/OpenSplat/build/opensplat /tmp/cmp_data/room1_pinhole -n 1000 -o /tmp/cmp_out/opensplat.ply --val",
+      "tail": "Loading frame_00222.jpg\nLoading frame_00141.jpg\nLoading frame_00069.jpg\nLoading frame_00568.jpg\nLoading frame_00367.jpg\nLoading frame_00504.jpg\nLoading frame_00437.jpg\nLoading frame_00226.jpg\nLoading frame_00147.jpg\nLoading frame_00653.jpg\nLoading frame_00074.jpg\nLoading frame_00573.jpg\nLoading frame_00150.jpg\n\nGPU support not built, use --cpu"
+    }
+  ],
+  "provenance": "incomplete"
+}
