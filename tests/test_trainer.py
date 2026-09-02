@@ -113,6 +113,73 @@ def test_selective_adam_leaves_invisible_untouched():
     assert torch.equal(t[10:], before[10:])
 
 
+def test_selective_adam_pads_active_mask_for_preallocated_gaussians():
+    """A high-visibility active set must not update inactive capacity rows."""
+    from metal_gauss.selective_adam import SelectiveAdam
+
+    t = torch.ones(12, 2, requires_grad=True)
+    before = t.detach().clone()
+    opt = SelectiveAdam([{"params": [t], "lr": 1e-2}])
+    visible = torch.ones(8, dtype=torch.bool)  # active < preallocated budget
+    t.grad = torch.ones_like(t)
+    opt.step(visible)
+
+    assert not torch.equal(t[:8], before[:8])
+    assert torch.equal(t[8:], before[8:])
+    assert torch.equal(opt.state[t]["steps"],
+                       torch.cat([torch.ones(8), torch.zeros(4)]))
+
+
+def test_selective_adam_matches_dense_for_an_auxiliary_group():
+    """Appearance parameters must use ordinary Adam, not Gaussian indexing."""
+    from metal_gauss.selective_adam import SelectiveAdam
+
+    torch.manual_seed(2)
+    gaussians = torch.randn(12, 3, requires_grad=True)
+    appearance = torch.randn(4, 3, requires_grad=True)
+    appearance_ref = appearance.detach().clone().requires_grad_(True)
+    opt = SelectiveAdam([{"params": [gaussians], "lr": 1e-2}])
+    opt.add_param_group({"params": [appearance], "lr": 3e-3,
+                         "name": "appearance"})
+    dense = torch.optim.Adam([appearance_ref], lr=3e-3, eps=1e-15)
+    visible = torch.zeros(12, dtype=torch.bool)
+    visible[:3] = True
+
+    for _ in range(3):
+        gaussians.grad = torch.randn_like(gaussians)
+        appearance.grad = torch.randn_like(appearance)
+        appearance_ref.grad = appearance.grad.clone()
+        opt.step(visible)
+        dense.step()
+
+    assert torch.allclose(appearance, appearance_ref, atol=1e-6)
+    assert "step" in opt.state[appearance]
+    assert "steps" not in opt.state[appearance]
+
+
+def test_selective_adam_exposes_standard_state_and_resettable_steps():
+    """MCMC can clear moments and per-Gaussian bias-correction history."""
+    from metal_gauss.mcmc import reset_adam_state
+    from metal_gauss.selective_adam import SelectiveAdam
+
+    t = torch.ones(8, 2, requires_grad=True)
+    opt = SelectiveAdam([{"params": [t], "lr": 1e-2}])
+    visible = torch.ones(8, dtype=torch.bool)
+    t.grad = torch.ones_like(t)
+    opt.step(visible)
+
+    state = opt.state[t]
+    assert {"exp_avg", "exp_avg_sq", "steps"} <= state.keys()
+    assert torch.all(state["steps"] == 1)
+    assert state["exp_avg"].abs().sum() > 0
+
+    reset_adam_state(opt, {"means": t}, torch.tensor([1, 6]))
+    assert torch.equal(state["steps"][[1, 6]], torch.zeros(2))
+    assert state["exp_avg"][[1, 6]].abs().sum() == 0
+    assert state["exp_avg_sq"][[1, 6]].abs().sum() == 0
+    assert torch.all(state["steps"][[0, 2, 3, 4, 5, 7]] == 1)
+
+
 # ---------------------------------------------------------------- MCMC math
 
 def test_relocation_opacity_composites_back():

@@ -113,6 +113,11 @@ def reset_adam_state(opt, params: dict, idx: torch.Tensor) -> None:
         for key in ("exp_avg", "exp_avg_sq"):
             if key in st:
                 st[key][idx] = 0.0
+        # SelectiveAdam keeps a step count per Gaussian so each row gets its
+        # own bias correction. Relocation/growth gives these rows a new
+        # meaning, so their history must be reset along with their moments.
+        if "steps" in st:
+            st["steps"][idx] = 0.0
 
 
 @torch.no_grad()
