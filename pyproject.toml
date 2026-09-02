@@ -24,6 +24,7 @@ Source = "https://github.com/nandometzger/metal-gauss"
 
 [project.scripts]
 metal-gauss-train = "metal_gauss.train:main"
+metal-gauss-render = "metal_gauss.render_path:main"
 
 [project.optional-dependencies]
 bench = ["pycolmap>=3.10"]

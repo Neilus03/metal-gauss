@@ -87,6 +87,61 @@ Every 8th view is held out. The exported `.ply` is standard INRIA-convention 3DG
 the step count; `--budget` overrides it. Blender scenes are **not vendored** — unpack
 [nerf_synthetic](https://github.com/bmild/nerf) into `data/nerf_synthetic/`.
 
+## 🎥 Render
+
+```bash
+metal-gauss-render prediction.ply --out frame0.png --still --like-photo portrait.jpg
+metal-gauss-render prediction.ply --out wiggle.mp4 --like-photo portrait.jpg
+metal-gauss-render scene.ply --out orbit.mp4 --frame bbox --path orbit --sweep-deg 20
+```
+
+Renders an existing `.ply` along a camera path the tool generates itself, so a file is no longer tied
+to the dataset it came from. Training already wrote `.ply` files, but every render path in the repo
+borrowed its cameras from a dataset, which left no way to look at a checkpoint, a scene trained
+elsewhere, a download, or anything a feedforward model predicted. Point this at a file and get a png
+or an mp4: `--path` picks still, wiggle or orbit, `--frame` picks what that path is built around,
+and `--resolution`, `--fov`, `--background` and `--convention` do what they say.
+
+`--frame input` anchors on the predicting camera, because a monocular predictor works in the input
+photograph's frame and the identity world-to-camera matrix reproduces that shot. `--frame bbox`
+places the camera around the cloud instead, for a trained scene that has no input camera. The
+default `auto` picks by the fraction of splats sitting in front of the origin, taking `input` above
+**99%**.
+
+`--like-photo` matters more than it looks, and it is the flag that makes a monocular prediction come
+out right. A `.ply` carries no camera, but the prediction was made under one, taken from the
+photograph's EXIF. Render it back at some other FOV and the geometry is right while the crop is not,
+so frame 0 stops reproducing the photograph, which is the whole point of anchoring to it. Worked
+example: Apple's [SHARP](https://github.com/apple/ml-sharp) reads `FocalLengthIn35mmFilm` and
+converts it with `f_px = f_35mm · diag(W, H) / diag(36, 24)`; this flag reproduces that conversion
+rather than approximating it, because the goal is to agree with the predictor and not to be
+independently correct about the lens. Without the flag the FOV is fitted to the cloud and the tool
+says so. The gap is not subtle: a 135 mm portrait is **12.9°**, SHARP's no-EXIF fallback of 30 mm
+is **54°**. SHARP is also a fair test of the whole entry point, since its own video renderer
+**requires CUDA** — predict on MPS, render here.
+
+`--aperture` renders through a thin lens instead of a pinhole: the frame becomes the mean of many
+views spread over the lens area, every one aimed at the focal plane, so that plane stays sharp and
+everything else disperses. Defocus therefore needs no new rasteriser, only more cameras. Radius 0 is
+the default and is bit-identical to the pinhole path. Below about 32 samples the sampling disc shows
+as a lattice in the bokeh.
+
+```bash
+metal-gauss-render prediction.ply --out bokeh.mp4 --like-photo portrait.jpg \
+    --aperture 0.03 --aperture-samples 96
+```
+
+Forward-only, so it is much faster than a training step: **69 fps** at 600k splats and 768², **91**
+at 512², **481** at 100k splats and 384², on an M5 with the GPU to itself (`bench/render_fps.py`,
+three round-robin repeats agreeing to within 10%). A defocused frame costs that times the sample
+count.
+
+Defaults are 60 frames at 30 fps, 512 px square, ±5° wiggle; `ffmpeg` on PATH writes the mp4.
+`--still` dumps frame 0 as a `.png`, the cheap way to check a file's convention before rendering 60
+frames of it; `--convention opengl` if it comes out flipped. A monocular prediction only has
+evidence for what the photograph saw, so past roughly **8°** the sweep starts showing invented
+surface. That is why the default sweep is small.
+
 ## ⚠️ Caveats
 
 - msplat is **1.3–1.8× faster per step** and owns every budget under ~0.3 min. Our floor there is
