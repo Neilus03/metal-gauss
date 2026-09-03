@@ -84,6 +84,17 @@ def test_steps_scaler_rewrite_is_a_transform_not_a_bug(capsys):
     assert "transform" in capsys.readouterr().out
 
 
+def test_steps_scaler_allows_every_scaled_step_schedule():
+    bad = check(
+        {"steps": 30000, "steps_scaler": 0.1,
+         "resolution_schedule": 2000, "filter_3d_every": 250,
+         "export_every": 100},
+        _report(steps=3000, steps_scaler=0.1, resolution_schedule=200,
+                filter_3d_every=25, export_every=10),
+    )
+    assert bad == []
+
+
 def test_start_active_clamp_is_a_transform():
     assert check({"budget": 10_000, "start_active": 150_000},
                  _report(budget=10_000, start_active=5_000)) == []

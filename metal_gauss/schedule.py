@@ -1,4 +1,4 @@
-"""Capacity schedule. Pure arithmetic, no third-party imports.
+"""Training schedules. Pure arithmetic, no third-party imports.
 
 Kept in its own module precisely because it has no dependencies. The tests that
 pin this schedule run in CI on a machine with no GPU and no torch -- CI installs
@@ -11,6 +11,66 @@ The rule is measured, and the evidence is in the docstring below rather than in
 a commit message, because this is the number a user silently inherits.
 """
 from __future__ import annotations
+
+import math
+
+
+def _scale_step(value: int, factor: float, *, zero_is_disabled: bool = False) -> int:
+    """Scale a step count or interval while preserving disabled zero values."""
+    if value == 0 and zero_is_disabled:
+        return 0
+    return max(1, int(value * factor))
+
+
+def resolve_training_schedule(*, steps: int, steps_scaler: float,
+                              budget: int | None, start_active: int,
+                              relocate_every: int, eval_every: int,
+                              sh_warmup: int, resolution_schedule: int | None,
+                              filter_3d_every: int,
+                              export_every: int) -> dict[str, int | float]:
+    """Resolve the step-dependent training settings in one place.
+
+    ``--steps-scaler`` is intended to make a short run a proportional miniature
+    of a longer run. That means it must be applied before defaults derived from
+    the run length, especially ``auto_budget`` and the default resolution
+    schedule. Explicit capacity remains an override because it is not a
+    step-domain schedule.
+
+    Zero is a meaningful sentinel for ``sh_warmup``, ``filter_3d_every`` and
+    ``export_every``: it disables that feature or requests the corresponding
+    fallback, so those values are not rounded up to one.
+    """
+    if not math.isfinite(steps_scaler) or steps_scaler <= 0:
+        raise ValueError("steps_scaler must be finite and greater than zero")
+
+    resolved_steps = _scale_step(steps, steps_scaler)
+    resolved_resolution = (
+        _scale_step(resolution_schedule, steps_scaler)
+        if resolution_schedule is not None
+        else max(1, resolved_steps // 3)
+    )
+    resolved_budget = auto_budget(resolved_steps) if budget is None else budget
+
+    resolved_start_active = start_active
+    if resolved_start_active > resolved_budget:
+        # The parameter tensors are preallocated at `budget`; an active count
+        # above that would read past the end.
+        resolved_start_active = max(1000, resolved_budget // 2)
+
+    return {
+        "steps": resolved_steps,
+        "budget": resolved_budget,
+        "start_active": resolved_start_active,
+        "relocate_every": _scale_step(relocate_every, steps_scaler),
+        "eval_every": _scale_step(eval_every, steps_scaler),
+        "sh_warmup": _scale_step(sh_warmup, steps_scaler,
+                                  zero_is_disabled=True),
+        "resolution_schedule": resolved_resolution,
+        "filter_3d_every": _scale_step(filter_3d_every, steps_scaler,
+                                         zero_is_disabled=True),
+        "export_every": _scale_step(export_every, steps_scaler,
+                                     zero_is_disabled=True),
+    }
 
 
 def auto_budget(steps: int) -> int:
