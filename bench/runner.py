@@ -49,6 +49,14 @@ class RunDiverged(RuntimeError):
     """
 
 
+def _scale_step(value: int, scaler: float, *, zero_is_disabled: bool = False) -> int:
+    """Reproduce the trainer's integer scaling rule for one step value."""
+    value = int(value)
+    if value == 0 and zero_is_disabled:
+        return 0
+    return max(1, int(value * scaler))
+
+
 def _transform_allowed(key: str, want, got, resolved: dict) -> str | None:
     """Is this divergence a documented rewrite by main(), or a harness bug?
 
@@ -58,11 +66,31 @@ def _transform_allowed(key: str, want, got, resolved: dict) -> str | None:
     the class of bug this module exists to catch. Each allowance therefore has
     to check that its triggering condition actually held.
     """
-    scaler = resolved.get("steps_scaler", 1.0)
-    if key in ("steps", "relocate_every", "eval_every", "sh_warmup",
-               "resolution_schedule", "filter_3d_every", "export_every"):
-        if scaler != 1.0:
-            return f"--steps-scaler {scaler} rewrites it"
+    scaler = float(resolved.get("steps_scaler", 1.0))
+    step_keys = {
+        "steps",
+        "relocate_every",
+        "eval_every",
+        "sh_warmup",
+        "resolution_schedule",
+        "filter_3d_every",
+        "export_every",
+    }
+    if key in step_keys and scaler != 1.0:
+        expected = _scale_step(
+            want,
+            scaler,
+            zero_is_disabled=key in {
+                "sh_warmup",
+                "filter_3d_every",
+                "export_every",
+            },
+        )
+        if got == expected or str(got) == str(expected):
+            return (
+                f"--steps-scaler {scaler} rewrites it "
+                f"from {want} to {expected}"
+            )
         return None
     if key == "start_active":
         # main() clamps start_active to budget//2 when it exceeds the budget,

@@ -25,9 +25,9 @@ jobs:
         run: pip install pytest
 
       - name: Harness regression tests
-        # tests/test_runner.py is pure argv/dict logic and imports no torch.
-        # It encodes the two harness bugs that produced wrong published numbers.
-        run: pytest tests/test_runner.py -q
+        # These tests cover pure argv/dict logic and the dependency-free schedule
+        # resolver. They import no torch and require no GPU.
+        run: pytest tests/test_runner.py tests/test_schedule.py -q
 
       - name: README tables match their JSONs
         run: python bench/readme_tables.py --check
