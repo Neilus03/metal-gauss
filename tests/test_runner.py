@@ -95,6 +95,35 @@ def test_steps_scaler_allows_every_scaled_step_schedule():
     assert bad == []
 
 
+@pytest.mark.parametrize(
+    ("key", "want", "wrong"),
+    [
+        ("steps", 30_000, 2_999),
+        ("relocate_every", 100, 9),
+        ("eval_every", 1_000, 99),
+        ("sh_warmup", 1_000, 999),
+        ("resolution_schedule", 2_000, 999),
+        ("filter_3d_every", 250, 24),
+        ("export_every", 100, 9),
+    ],
+)
+def test_steps_scaler_rejects_wrong_scaled_value(key, want, wrong):
+    bad = check(
+        {"steps_scaler": 0.1, key: want},
+        _report(steps_scaler=0.1, **{key: wrong}),
+    )
+    assert bad and key in bad[0]
+
+
+@pytest.mark.parametrize("key", ["sh_warmup", "filter_3d_every", "export_every"])
+def test_steps_scaler_rejects_wrong_zero_sentinel_value(key):
+    bad = check(
+        {"steps_scaler": 0.1, key: 0},
+        _report(steps_scaler=0.1, **{key: 1}),
+    )
+    assert bad and key in bad[0]
+
+
 def test_start_active_clamp_is_a_transform():
     assert check({"budget": 10_000, "start_active": 150_000},
                  _report(budget=10_000, start_active=5_000)) == []
