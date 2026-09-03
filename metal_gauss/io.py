@@ -57,6 +57,12 @@ def load_ply(path: str | Path, device: str = "cpu", dtype=torch.float32) -> Spla
     opac = 1.0 / (1.0 + np.exp(-col("opacity")))                    # sigmoid
 
     n_rest = len([n for n in names if n.startswith("f_rest_")])
+    # `// 3` on its own truncates: 46 coefficients would read as 45, silently
+    # dropping a column and shifting the channel-major layout underneath it.
+    # The whole-degree check below catches many such counts but not all.
+    if n_rest % 3:
+        raise ValueError(f"{path}: {n_rest} f_rest coefficients is not a whole "
+                         f"number per channel")
     per_channel = n_rest // 3
     n_bases = per_channel + 1
     degree = int(round(n_bases ** 0.5)) - 1
