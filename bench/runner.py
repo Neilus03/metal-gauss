@@ -59,7 +59,8 @@ def _transform_allowed(key: str, want, got, resolved: dict) -> str | None:
     to check that its triggering condition actually held.
     """
     scaler = resolved.get("steps_scaler", 1.0)
-    if key in ("steps", "relocate_every", "eval_every", "sh_warmup"):
+    if key in ("steps", "relocate_every", "eval_every", "sh_warmup",
+               "resolution_schedule", "filter_3d_every", "export_every"):
         if scaler != 1.0:
             return f"--steps-scaler {scaler} rewrites it"
         return None

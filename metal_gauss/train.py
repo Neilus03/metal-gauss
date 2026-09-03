@@ -24,7 +24,7 @@ import torch
 
 from metal_gauss import render
 from metal_gauss.dataset import Scene, downscaled, load_scene
-from metal_gauss.schedule import auto_budget  # noqa: F401  (re-exported)
+from metal_gauss.schedule import (auto_budget, resolve_training_schedule)  # noqa: F401
 from metal_gauss.appearance import AppearanceModel
 from metal_gauss.mcmc import add_noise, grow, relocate
 from metal_gauss.mipfilter import apply_3d_filter, compute_3d_filter
@@ -695,32 +695,33 @@ def main():
     args = ap.parse_args()
     if not args.blender and not (args.colmap and args.images):
         ap.error("need --blender, or --colmap with --images")
-    if args.resolution_schedule is None:
-        # Reach full resolution two thirds of the way in, whatever the run
-        # length. Measured on lego at a 100k budget, scored on the official
-        # test split:
-        #     iters   full-res throughout   coarse-to-fine
-        #      1000   23.89 @ 1.13 min      23.65 @ 0.74 min
-        #      2000   26.32 @ 1.80          26.20 @ 1.17
-        #      4000   28.49 @ 2.99          28.72 @ 1.93
-        # ~35% faster everywhere, and the quality cost shrinks with run length
-        # (-0.24, -0.12, +0.23 dB), so by 4k steps it wins on BOTH axes.
-        args.resolution_schedule = max(1, args.steps // 3)
-    if args.budget is None:
-        args.budget = auto_budget(args.steps)
+    budget_was_auto = args.budget is None
+    try:
+        resolved = resolve_training_schedule(
+            steps=args.steps,
+            steps_scaler=args.steps_scaler,
+            budget=args.budget,
+            start_active=args.start_active,
+            relocate_every=args.relocate_every,
+            eval_every=args.eval_every,
+            sh_warmup=args.sh_warmup,
+            resolution_schedule=args.resolution_schedule,
+            filter_3d_every=args.filter_3d_every,
+            export_every=args.export_every,
+        )
+    except ValueError as e:
+        ap.error(str(e))
+
+    for name, value in resolved.items():
+        setattr(args, name, value)
+
+    if budget_was_auto:
         print(f"budget {args.budget:,} (auto, from {args.steps} steps)")
-    if args.start_active > args.budget:
-        # the parameter tensors are preallocated at `budget`; an `active` above
-        # that reads past the end.
-        args.start_active = max(1000, args.budget // 2)
     if args.steps_scaler != 1.0:
-        k = args.steps_scaler
-        args.steps = max(1, int(args.steps * k))
-        args.relocate_every = max(1, int(args.relocate_every * k))
-        args.eval_every = max(1, int(args.eval_every * k))
-        args.sh_warmup = max(1, int(args.sh_warmup * k)) if args.sh_warmup else 0
-        print(f"steps_scaler {k}: {args.steps} steps, relocate every "
-              f"{args.relocate_every}, sh warmup {args.sh_warmup}")
+        print(f"steps_scaler {args.steps_scaler}: {args.steps} steps, relocate every "
+              f"{args.relocate_every}, eval every {args.eval_every}, "
+              f"resolution every {args.resolution_schedule}, "
+              f"sh warmup {args.sh_warmup}")
     train(args)
 
 
