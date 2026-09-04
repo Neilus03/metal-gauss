@@ -36,5 +36,19 @@ jobs:
               raise SystemExit("PyTorch cannot access the hosted Apple GPU")
           PY
 
+      - name: Probe a plain PyTorch MPS allocation
+        run: |
+          python - <<'PY'
+          import torch
+
+          x = torch.zeros((1,), device="mps")
+          torch.mps.synchronize()
+          print(f"plain_mps_allocation={x.item():.1f}")
+          PY
+
+      - name: Run one Metal-Gauss test (diagnostic)
+        continue-on-error: true
+        run: python -m pytest -q tests/test_absgrad.py::test_absgrad_dominates_the_signed_norm
+
       - name: Run the complete test suite
         run: python -m pytest -q
