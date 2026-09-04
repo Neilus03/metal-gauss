@@ -8,8 +8,6 @@ jobs:
     name: Metal kernels (Apple Silicon)
     runs-on: macos-15
     timeout-minutes: 30
-    env:
-      PYTORCH_MPS_HIGH_WATERMARK_RATIO: "0.0"
     steps:
       - uses: actions/checkout@v4
 
