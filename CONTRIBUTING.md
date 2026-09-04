@@ -11,13 +11,22 @@ CUDA path, so the rasteriser tests cannot run anywhere else.
 CI is deliberately CPU-only: it runs the harness tests and checks that the
 generated tables still match their JSONs. A job that needs a GPU it does not
 have would fail forever, which is worse than not running. So **CI passing does
-not mean the kernels are fine** — run the full suite locally.
+not mean the kernels are fine** — run the full suite locally, or opt in to the
+hosted Apple Silicon job while it is being evaluated.
 
 ```bash
 uv venv --python 3.12 .venv
 uv pip install --python .venv/bin/python -e ".[bench,train]" pytest lpips scikit-image imageio tqdm torchvision
 .venv/bin/python -m pytest -q          # 188 tests, needs an Apple GPU
 ```
+
+The `metal` job in `.github/workflows/checks.yml` is opt-in during its initial
+evaluation. A repository variable named `METAL_GAUSS_ENABLE_MPS_CI` set to
+`true` enables it for pull requests. Before enabling it for every PR, run the
+same job manually from the Actions tab with the `run_metal` input enabled. It
+checks that the runner is `arm64`, verifies that PyTorch can see MPS, installs
+the complete test dependencies, and runs all tests. It contains no timing
+benchmarks.
 
 ## Performance claims need a warm machine and an idle one
 
