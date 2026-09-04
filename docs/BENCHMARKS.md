@@ -385,7 +385,7 @@ python bench/compare/pareto.py --msplat-stock  # Pareto front vs msplat  (~35 mi
 python bench/readme_tables.py --check         # fail if a README table drifts from its JSON
 python bench/quarantine.py                    # list results that cannot state their own protocol
 python bench/reproducibility.py a.json b.json # per-scene run-to-run spread from repeated sweeps
-python bench/startup_profile.py               # how much of a short run is startup, and what caches
+python bench/startup_profile.py               # startup breakdown and extension/library caching
 python bench/compare/run_compare.py --scene <colmap> --iters 7000   # head-to-head
 ```
 

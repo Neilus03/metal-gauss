@@ -12,8 +12,9 @@ everything before the first step.
 Three candidates, separated here:
   * the C++/ObjC++ extension build (torch cpp_extension, cached on disk as a
     .so, so it should be paid once ever);
-  * Metal shader compilation via newLibraryWithSource, which runs from source
-    in every process and cannot be cached by torch;
+  * Metal library loading: installed packages use a matching precompiled
+    ``.metallib`` when present; ``METAL_GAUSS_FORCE_SOURCE=1`` forces the
+    ``newLibraryWithSource`` fallback for comparison;
   * filesystem page cache for the scene images, warm after the first read.
 """
 from __future__ import annotations
