@@ -1,4 +1,4 @@
-name: Metal CI evaluation
+name: build Metal library
 
 on:
   workflow_dispatch:
