@@ -45,11 +45,9 @@ project in row one can only be beaten or lost to.
    warning, and the binary exits with "GPU support not built, use --cpu".
 
 That second point is worth stating because it is the exact constraint metal-gauss was designed
-around: source checkouts still compile `.metal` sources at **runtime** with
-`newLibraryWithSource`, so no Xcode is required to run them. Installed packages may carry a
-matching `.metallib`, but that is optional and does not change this machine's OpenSplat result.
-OpenSplat cannot be GPU-benchmarked here without installing Xcode, and a CPU number would not be
-comparable, so it has no row in the training tables.
+around: we compile our `.metal` sources at **runtime** with `newLibraryWithSource`, so no Xcode
+and no `.metallib` step is required. OpenSplat cannot be GPU-benchmarked here without installing
+Xcode, and a CPU number would not be comparable, so it has no row in the training tables.
 
 ### A third trap: duplicate OpenMP runtimes
 

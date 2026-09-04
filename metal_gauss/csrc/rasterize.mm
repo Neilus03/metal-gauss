@@ -1,58 +1,28 @@
 // PyTorch <-> Metal bindings for the Gaussian rasteriser.
 //
-// Prefer a packaged Metal IR library when one is available. Source compilation
-// remains the fallback so a source checkout works with Command Line Tools
-// alone, and so a stale or incompatible library cannot make the backend fail.
+// The .metal source is compiled at runtime with newLibraryWithSource because
+// this machine has Command Line Tools without full Xcode, so `xcrun metal` is
+// unavailable and a precompiled .metallib cannot be produced. Runtime
+// compilation needs no Xcode and costs a few hundred ms once per process.
 #include <torch/extension.h>
 #include <ATen/ATen.h>
 #include <ATen/native/mps/OperationUtils.h>
 #include <torch/mps.h>
 #import <Foundation/Foundation.h>
 #import <Metal/Metal.h>
-#include <dispatch/dispatch.h>
 
 using at::native::mps::getMTLBufferStorage;
 
 static id<MTLLibrary> gLib = nil;
 static NSMutableDictionary* gPipelines = nil;
 
-static id<MTLLibrary> libraryFromData(id<MTLDevice> dev,
-                                      const std::string& path,
-                                      NSError** error) {
-    if (path.empty()) return nil;
-    NSString* file = [NSString stringWithUTF8String:path.c_str()];
-    NSData* data = [NSData dataWithContentsOfFile:file];
-    if (!data || data.length == 0) return nil;
-
-    // dispatch_data_t keeps the NSData alive until Metal has consumed the
-    // bytes. The destructor block captures the object rather than asking the
-    // default destructor to free NSData-owned memory.
-    dispatch_data_t bytes = dispatch_data_create(
-        data.bytes, data.length, dispatch_get_global_queue(QOS_CLASS_UTILITY, 0), ^{
-            (void)data;
-        });
-    id<MTLLibrary> lib = [dev newLibraryWithData:bytes error:error];
-#if !OS_OBJECT_USE_OBJC
-    dispatch_release(bytes);
-#endif
-    return lib;
-}
-
-static void initLibrary(const std::string& src,
-                        const std::string& precompiled_path) {
+static void initLibrary(const std::string& src) {
     if (gLib) return;
     NSError* err = nil;
     id<MTLDevice> dev = MTLCreateSystemDefaultDevice();
     TORCH_CHECK(dev, "no Metal device");
-
-    if (!precompiled_path.empty()) {
-        gLib = libraryFromData(dev, precompiled_path, &err);
-    }
-    if (!gLib) {
-        err = nil;
-        gLib = [dev newLibraryWithSource:[NSString stringWithUTF8String:src.c_str()]
-                                 options:nil error:&err];
-    }
+    gLib = [dev newLibraryWithSource:[NSString stringWithUTF8String:src.c_str()]
+                             options:nil error:&err];
     TORCH_CHECK(gLib, "Metal compile failed: ",
                 err ? err.localizedDescription.UTF8String : "unknown");
     gPipelines = [NSMutableDictionary new];
@@ -196,9 +166,7 @@ std::vector<torch::Tensor> rasterize_backward(
     return {d_uv, d_conic, d_opacity, d_color, d_absuv};
 }
 
-void init(const std::string& src, const std::string& precompiled_path) {
-    initLibrary(src, precompiled_path);
-}
+void init(const std::string& src) { initLibrary(src); }
 
 
 
@@ -521,7 +489,7 @@ std::vector<torch::Tensor> bin_write(torch::Tensor uv, torch::Tensor rxy,
 }
 
 PYBIND11_MODULE(TORCH_EXTENSION_NAME, m) {
-    m.def("init", &init, "load the Metal library, falling back to source");
+    m.def("init", &init, "compile the Metal library from source");
     m.def("rasterize_forward", &rasterize_forward);
     m.def("rasterize_backward", &rasterize_backward);
     m.def("pack_intersections", &pack_intersections);

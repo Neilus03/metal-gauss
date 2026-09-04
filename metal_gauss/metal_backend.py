@@ -20,9 +20,7 @@ float64. These kernels are never trusted on their own.
 
 from __future__ import annotations
 
-import hashlib
 import math
-import os
 from pathlib import Path
 
 import torch
@@ -30,51 +28,13 @@ import torch
 _HERE = Path(__file__).parent
 _ext = None
 
-# The source form remains the fallback so a source checkout keeps working with
-# Command Line Tools alone. A package may also carry the IR library produced by
-# scripts/build_metallib.py. Keep this list in one place: the same bytes are
-# compiled by the build script and hashed here before a cached library is used.
-_METAL_SOURCES = (
-    "rasterize.metal",
-    "preprocess.metal",
-    "adam.metal",
-    "ssim.metal",
-    "binning.metal",
-)
-
-
-def _metal_source() -> str:
-    return "\n".join((_HERE / "csrc" / name).read_text(encoding="utf-8")
-                       for name in _METAL_SOURCES) + "\n"
-
-
-def _precompiled_library(source: str) -> Path | None:
-    """Return a matching packaged Metal IR library, if one is present.
-
-    The sidecar digest is deliberate. A stale binary library can otherwise be
-    much harder to diagnose than a normal source compile failure after a local
-    kernel edit. ``METAL_GAUSS_FORCE_SOURCE=1`` is useful when validating the
-    fallback or comparing cold-start paths.
-    """
-    if os.environ.get("METAL_GAUSS_FORCE_SOURCE") == "1":
-        return None
-    lib = _HERE / "csrc" / "metal_gauss.metallib"
-    digest_file = lib.with_suffix(lib.suffix + ".sha256")
-    if not lib.is_file() or not digest_file.is_file():
-        return None
-    try:
-        expected = digest_file.read_text().strip().split()[0]
-    except (OSError, IndexError):
-        return None
-    actual = hashlib.sha256(source.encode()).hexdigest()
-    return lib if expected == actual else None
-
 
 def _load():
-    """Build the bridge and load a matching library, or compile from source."""
+    """Build and cache the extension. Runtime-compiles the .metal source."""
     global _ext
     if _ext is not None:
         return _ext
+    import os
     import sys
 
     # torch finds ninja via PATH, but pip installs it into the venv's bin,
@@ -93,9 +53,11 @@ def _load():
         extra_ldflags=["-framework", "Metal", "-framework", "Foundation"],
         verbose=False,
     )
-    source = _metal_source()
-    cached = _precompiled_library(source)
-    _ext.init(source, str(cached) if cached is not None else "")
+    _ext.init((_HERE / "csrc" / "rasterize.metal").read_text() + "\n"
+              + (_HERE / "csrc" / "preprocess.metal").read_text() + "\n"
+              + (_HERE / "csrc" / "adam.metal").read_text() + "\n"
+              + (_HERE / "csrc" / "ssim.metal").read_text() + "\n"
+              + (_HERE / "csrc" / "binning.metal").read_text())
     return _ext
 
 
@@ -541,3 +503,4 @@ def render(means, quats, scales, opacities, sh, K, viewmat, W, H,
         "valid_mask": valid_b,          # tensor, no sync; selective-Adam hook
         "backend": "metal",
     }
+
