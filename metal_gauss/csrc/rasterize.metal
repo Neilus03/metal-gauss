@@ -10,6 +10,25 @@ using namespace metal;
 // round trip but is not the bottleneck: the per-pixel loop below is.
 #define STAGE 256
 
+// Metal versions used by some Apple Silicon CI images do not expose
+// `atomic_float`. The gradient buffers are still float tensors, so use an
+// atomic uint as a bitwise CAS lock-free accumulator over the same 32-bit
+// storage. Floating-point addition is not associative, and the native float
+// atomic path is also order-dependent; this preserves that behavior while
+// keeping the kernel source compatible with older Metal compilers.
+inline void atomic_add_float(device atomic_uint* address, float value)
+{
+    if (value == 0.0f) return;
+    uint expected = atomic_load_explicit(address, memory_order_relaxed);
+    while (true) {
+        const float current = as_type<float>(expected);
+        const uint desired = as_type<uint>(current + value);
+        if (atomic_compare_exchange_weak_explicit(
+                address, &expected, desired,
+                memory_order_relaxed, memory_order_relaxed)) return;
+    }
+}
+
 kernel void rasterize_forward(
     device const float2*  uv            [[buffer(0)]],
     device const packed_float3* conic   [[buffer(1)]],
@@ -119,10 +138,10 @@ kernel void rasterize_backward(
     device const int*     n_contrib    [[buffer(7)]],
     device const packed_float3* grad_rgb [[buffer(8)]],
     device const float*   grad_alpha    [[buffer(9)]],
-    device atomic_float*  d_uv          [[buffer(10)]],  // 2 per gaussian
-    device atomic_float*  d_conic       [[buffer(11)]],  // 3 per gaussian
-    device atomic_float*  d_opacity     [[buffer(12)]],  // 1 per gaussian
-    device atomic_float*  d_color       [[buffer(13)]],  // 3 per gaussian
+    device atomic_uint*    d_uv          [[buffer(10)]],  // 2 per gaussian
+    device atomic_uint*    d_conic       [[buffer(11)]],  // 3 per gaussian
+    device atomic_uint*    d_opacity     [[buffer(12)]],  // 1 per gaussian
+    device atomic_uint*    d_color       [[buffer(13)]],  // 3 per gaussian
     constant uint4&       dims          [[buffer(14)]],
     // absgrad: sum over PIXELS of |d_uv|, not the magnitude of the summed
     // gradient. A gaussian straddling an edge gets opposing per-pixel pushes
@@ -130,7 +149,7 @@ kernel void rasterize_backward(
     // statistic does not cancel, which is what makes it a better densification
     // signal (gsplat's absgrad). Written to a separate buffer because it is a
     // statistic, not an adjoint -- nothing differentiates through it.
-    device atomic_float*  d_absuv       [[buffer(15)]],  // 1 per gaussian
+    device atomic_uint*    d_absuv       [[buffer(15)]],  // 1 per gaussian
     // Uniform across the whole dispatch, so the branches below are perfectly
     // predicted and cost nothing when absgrad is not requested. Without this
     // the reduction, the sqrt and a tenth atomic ran on EVERY backward,
@@ -242,18 +261,17 @@ kernel void rasterize_backward(
                                    || r_uy != 0 || r_k0 != 0 || r_k1 != 0 || r_k2 != 0
                                    || r_op != 0)) {
                 const int g = gauss_ids[i];
-                atomic_fetch_add_explicit(&d_color[3*g+0], r_cx, memory_order_relaxed);
-                atomic_fetch_add_explicit(&d_color[3*g+1], r_cy, memory_order_relaxed);
-                atomic_fetch_add_explicit(&d_color[3*g+2], r_cz, memory_order_relaxed);
-                atomic_fetch_add_explicit(&d_uv[2*g+0], r_ux, memory_order_relaxed);
-                atomic_fetch_add_explicit(&d_uv[2*g+1], r_uy, memory_order_relaxed);
-                atomic_fetch_add_explicit(&d_conic[3*g+0], r_k0, memory_order_relaxed);
-                atomic_fetch_add_explicit(&d_conic[3*g+1], r_k1, memory_order_relaxed);
-                atomic_fetch_add_explicit(&d_conic[3*g+2], r_k2, memory_order_relaxed);
-                atomic_fetch_add_explicit(&d_opacity[g], r_op, memory_order_relaxed);
+                atomic_add_float(&d_color[3*g+0], r_cx);
+                atomic_add_float(&d_color[3*g+1], r_cy);
+                atomic_add_float(&d_color[3*g+2], r_cz);
+                atomic_add_float(&d_uv[2*g+0], r_ux);
+                atomic_add_float(&d_uv[2*g+1], r_uy);
+                atomic_add_float(&d_conic[3*g+0], r_k0);
+                atomic_add_float(&d_conic[3*g+1], r_k1);
+                atomic_add_float(&d_conic[3*g+2], r_k2);
+                atomic_add_float(&d_opacity[g], r_op);
                 if (want_absgrad && r_abs != 0)
-                    atomic_fetch_add_explicit(&d_absuv[g], r_abs,
-                                              memory_order_relaxed);
+                    atomic_add_float(&d_absuv[g], r_abs);
             }
         }
     }
