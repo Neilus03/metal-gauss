@@ -5,8 +5,9 @@ enough to be worth knowing before you start.
 
 ## You need an Apple Silicon Mac
 
-The kernels are Metal and compile at runtime. There is no CPU fallback and no
-CUDA path, so the rasteriser tests cannot run anywhere else.
+The kernels are Metal. A matching precompiled Metal library is used when it is
+available; source checkouts fall back to runtime compilation. There is no CPU
+fallback and no CUDA path, so the rasteriser tests cannot run anywhere else.
 
 CI is deliberately CPU-only: it runs the harness tests and checks that the
 generated tables still match their JSONs. A job that needs a GPU it does not
@@ -18,6 +19,18 @@ uv venv --python 3.12 .venv
 uv pip install --python .venv/bin/python -e ".[bench,train]" pytest lpips scikit-image imageio tqdm torchvision
 .venv/bin/python -m pytest -q          # 188 tests, needs an Apple GPU
 ```
+
+Most contributors do not need full Xcode. If you have Apple's Metal command-line
+tools, you can rebuild the packaged library after changing a kernel with:
+
+```bash
+.venv/bin/python scripts/build_metallib.py
+```
+
+The repository also keeps the source fallback available. The runtime checks the
+library's source digest and ignores a missing or stale library automatically.
+Use `METAL_GAUSS_FORCE_SOURCE=1` when comparing the fallback with the packaged
+library.
 
 ## Performance claims need a warm machine and an idle one
 

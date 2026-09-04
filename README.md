@@ -14,8 +14,9 @@
 
 ---
 
-3D Gaussian Splatting that **trains** on Apple Silicon. Metal compute kernels compiled at runtime,
-so there is no CUDA and no Xcode — Command Line Tools are enough.
+3D Gaussian Splatting that **trains** on Apple Silicon. Metal compute kernels use a packaged
+precompiled library when available and fall back to runtime compilation, so there is no CUDA and
+no full Xcode requirement for normal use.
 
 ## 🏆 Quality per minute
 
@@ -73,8 +74,12 @@ lego, panel at 400 px, metrics over 20 held-out views at 800 px. Build the inter
 pip install "git+https://github.com/nandometzger/metal-gauss"
 ```
 
-macOS on Apple Silicon, Python ≥3.10, PyTorch ≥2.5. Metal kernels compile at **runtime** — no Xcode,
-no `.metallib` step.
+macOS on Apple Silicon, Python ≥3.10, PyTorch ≥2.5. Installed packages use a matching precompiled
+Metal library when one is available; source checkouts fall back to runtime compilation. Full Xcode
+is not required to run the project.
+
+When developing or benchmarking the source fallback explicitly, set
+`METAL_GAUSS_FORCE_SOURCE=1` before launching the command.
 
 ## 🚀 Train
 

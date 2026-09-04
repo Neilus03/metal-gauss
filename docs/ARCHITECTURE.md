@@ -30,4 +30,5 @@ from a harness, and the two that did the most damage are now regression tests.
 - **Adam in one pass** instead of torch's five, at the measured memory-bandwidth floor.
 - **MCMC densification** with gradient-targeted relocation, exact multiplicity correction and
   Adam-moment resets.
-- Metal compiles at **runtime** via `newLibraryWithSource` — hence no Xcode.
+- Metal loads a matching precompiled IR library when available and falls back to
+  `newLibraryWithSource`, so source checkouts still work without full Xcode.
