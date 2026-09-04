@@ -1,9 +1,9 @@
-# CPU-only guards. Deliberately does NOT run the kernel tests: they need a real
-# Apple GPU, and a CI job that cannot pass is worse than no CI job.
+# The provenance job below is deliberately CPU-only. The opt-in Metal job is
+# kept separate because it needs a hosted Apple GPU and runtime Metal 3
+# compilation.
 #
-# What this does catch is the class of bug that actually hurt this project --
-# benchmark bookkeeping, not kernels. Every wrong number published here came
-# from a harness.
+# Keeping the jobs separate lets the repository retain a deterministic,
+# hardware-independent check while still making the actual kernels testable.
 name: checks
 
 on:
@@ -51,7 +51,7 @@ jobs:
     if: >-
       (github.event_name == 'workflow_dispatch' && inputs.run_metal) ||
       vars.METAL_GAUSS_ENABLE_MPS_CI == 'true'
-    runs-on: macos-14
+    runs-on: macos-15
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
